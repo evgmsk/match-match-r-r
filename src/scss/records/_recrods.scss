@@ -1,0 +1,53 @@
+@import "../common/_variables", "../mixin/_mixins", "../mixin/_placeholders";
+
+.records-section {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  span {
+    color: $text-color-main;
+    font: 2rem/2 Arial, 'sans-serif';
+  }
+}
+.records-wrapper {
+  width: 60%;
+  height: 70%;
+  @include recordGrid();
+  grid-template-rows: 7rem 5rem;
+  .player-name-head {
+    grid-area: 1 / 1 / 3 / 2;
+    span {
+      font-size: 3rem;
+    }
+  }
+  .player-records-head {
+    grid-area: 1 / 2 / 2 / last-line;
+    span {
+      font-size: 3rem;
+    }
+  }
+  .player-name {
+    grid-column-start: 1;
+    justify-self: start;
+  }
+  .difficulty-level-head {
+    font-size: 2.5rem;
+    line-height: 5rem;
+  }
+}
+.records-close-button {
+  grid-column: 2 / 4;
+  background: $text-color-main;
+  color: $bg-color-main;
+  width: 25rem;
+  height: 5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}

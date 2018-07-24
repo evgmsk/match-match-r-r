@@ -1,0 +1,57 @@
+@import "./scss/reset";
+@font-face {
+  font-family: 'SFUIText';
+  src: url('./fonts/SFUIText-Semibold.eot');
+  url('./fonts/SFUIText-Semibold.eot?#iefix') format('embedded-opentype'),
+  url('./fonts/SFUIText-Semibold.woff') format('woff'),
+  url('./fonts/SFUIText-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUIText';
+  src: url('./fonts/SFUIText-Regular.eot');
+  url('./fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
+  url('./fonts/SFUIText-Regular.woff') format('woff'),
+  url('./fonts/SFUIText-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUIText';
+  src: url('./fonts/SFUIText-Medium.eot');
+  url('./fonts/SFUIText-Medium.eot?#iefix') format('embedded-opentype'),
+  url('./fonts/SFUIText-Medium.woff') format('woff'),
+  url('./fonts/SFUIText-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  src: url('./fonts/SFUIDisplay-Bold.eot');
+  url('./fonts/SFUIDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+  url('./fonts/SFUIDisplay-Bold.woff') format('woff'),
+  url('./fonts/SFUIDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font: 1.4rem/2.5rem 'SFUIText', Hevetica, 'sans-serif';
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+  font-stretch: normal;
+  color: #2f2f2f;
+}
+
+@media (max-width: 900px) {
+  html{
+    font-size: 9px;
+  }
+}

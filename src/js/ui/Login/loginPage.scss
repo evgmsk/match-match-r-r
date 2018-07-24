@@ -1,0 +1,12 @@
+@import "../../Scss/constants";
+
+.log-page {
+  background: url('#{$imgPath}/start_page_bg.jpg') no-repeat;
+  height: calc(100vh - 100px);
+  @include flex(center, center, column);
+  h2 {
+    text-align: center;
+    font: 3rem/2 Rubik, 'sans-serif';
+    color: $ice;
+  }
+}

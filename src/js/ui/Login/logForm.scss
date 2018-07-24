@@ -1,0 +1,134 @@
+@import "../../../scss/constants";
+
+.login-wrapper {
+  position: relative;
+  background: transparent;
+  color: $ice;
+  font: 2rem/1 Helvetica, 'sans-serif';
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  .reg-form {
+    width: 70%;
+  }
+  @media (min-width: 600px) {
+    width: 60%;
+    .reg-form {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+    }
+  }
+  @media (min-width: 900px) {
+    width: 50%;
+    max-width: 600px;
+    .reg-form {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+    }
+  }
+  &.closed {
+    display: none;
+  }
+}
+
+.form-fieldset {
+  position: relative;
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  label {
+    display: block;
+    width: 30%;
+    min-width: 15rem;
+    text-align: center;
+  }
+  .invalid-email,
+  .invalid-password {
+    font: 1.5rem/1 Arial, 'sans-serif';
+    color:  $error-color;
+    position: absolute;
+    bottom: -0px;
+    display: none;
+  }
+  input {
+    background: $ice;
+    padding: 0 1rem;
+    width: 60%;
+    min-height: 3rem;
+    min-width: 18rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    cursor: default;
+    margin: 2rem auto;
+  }
+  [type='submit'] {
+    margin: 2rem auto;
+    font: 2.5rem/1 Helvetica, 'sans-serif';
+    font-weight: 600;
+    height: 5rem;
+    box-shadow: 0 6px darken($submit-btn, 10%);
+    border-radius: 5px;
+    max-width: 30rem;
+    background: $submit-btn;
+    color: $ice;
+    cursor: pointer;
+    &:hover {
+      background: $ice;
+      box-shadow: 0 6px darken($ice, 10%);
+      color: $submit-btn;
+      transition: color .3s, background-color .3s;
+    }
+  }
+  &.invalid {
+    input{
+      border: solid 2px $error-color;
+    }
+    input::placeholder {
+      color: $error-color;
+    }
+    .invalid-email,
+    .invalid-password {
+      display: block;
+    }
+  }
+  @media (min-width: 900px) {
+    margin: 5rem auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    &.invalid {
+      .invalid-email,
+      .invalid-password {
+        bottom: -10px;
+        left: 50%;
+        display: block;
+      }
+    }
+    label {
+      text-align: left;
+    }
+    input {
+      height: 4rem;
+      width: 40%;
+    }
+  }
+
+}
+.email-error{
+    position: absolute;
+    top: 5rem;
+    right: 50%;
+    transform: translateX(70%);
+    min-width: 30rem;
+    visibility: hidden;
+    color: $error-color;
+    font-size: 1.8rem;
+}

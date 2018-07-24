@@ -1,0 +1,22 @@
+@import "../../../Scss/_constants";
+
+.main-menu-item {
+  border: none;
+  background: none;
+  font: 2.6rem/1  'Calibri', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $menu-main;
+  border-bottom: solid 4px transparent;
+  &:hover,
+  &:focus,
+  &.menu-item-active {
+    border-bottom: solid 4px $menu-main;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+  &.menu-item-active {
+    cursor: none;
+  }
+}
