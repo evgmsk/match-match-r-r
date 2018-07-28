@@ -1,0 +1,93 @@
+@import "../../../../../scss/constants";
+.form-fieldset {
+  position: relative;
+  width: 100%;
+  margin: 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  label {
+    display: block;
+    width: 30%;
+    min-width: 15rem;
+    text-align: center;
+  }
+  &.invalid {
+    input{
+      border: solid 2px $error-color;
+    }
+    input::placeholder {
+      color: $error-color;
+    }
+  }
+  &.invalid:after {
+    content: '';
+    font: 1.5rem/1 Arial, 'sans-serif';
+    color:  $error-color;
+    position: absolute;
+    top: 8rem;
+    left: 1rem;
+
+  }
+  &.email-fieldset.invalid:after {
+    content: 'Please enter valid email';
+  }
+  &.name-fieldset.invalid:after {
+    content: 'Your name must contain at least two letters';
+  }
+  &.password-fieldset.invalid:after {
+    content: 'Password must contain at least one special mark';
+  }
+  input {
+    position: relative;
+    background: $ice;
+    padding: 0 1rem;
+    width: 60%;
+    min-height: 3rem;
+    min-width: 18rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    cursor: default;
+    margin: 2rem auto;
+  }
+  [type='submit'] {
+    margin: 2rem auto;
+    font: 2.5rem/1 Helvetica, 'sans-serif';
+    font-weight: 600;
+    height: 5rem;
+    border-radius: 5px;
+    max-width: 30rem;
+    background: $submit-btn;
+    color: $ice;
+    cursor: pointer;
+    &:hover {
+      background: $ice;
+      color: $submit-btn;
+      transition: color .3s, background-color .3s;
+    }
+  }
+  @media (min-width: 900px) {
+    margin: 5rem auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    &.invalid {
+      .invalid-email,
+      .invalid-password {
+        bottom: -10px;
+        left: 50%;
+        display: block;
+      }
+    }
+    label {
+      text-align: left;
+    }
+    input {
+      height: 4rem;
+      width: 40%;
+    }
+  }
+}

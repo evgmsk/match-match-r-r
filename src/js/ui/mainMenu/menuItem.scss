@@ -1,0 +1,22 @@
+@import "../../../Scss/_constants";
+
+.main-menu-item {
+  border: none;
+  background: none;
+  font: $font-menu-main;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $game-menu-border;
+  border-bottom: solid 4px transparent;
+  &:hover,
+  &:focus,
+  &.selected {
+    border-bottom: solid 4px $game-menu-border;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+  &.menu-item-active {
+    cursor: none;
+  }
+}

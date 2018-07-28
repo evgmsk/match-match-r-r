@@ -3,25 +3,36 @@
  */
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import AppRoute from './AppRoute';
-import Header from './Header';
-import Spinner from './ui/OnloadDataSpinner/SpinnerUI';
-import './startPage.scss';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import AppRoute from './appRoute';
+import Header from './ui/header/Header';
+import Footer from './ui/footer/Footer';
+import Spinner from './ui/onloadDataSpinner/SpinnerUI';
+import './app.scss';
 
-const StartPage = props => {
+const App = props => {
+    console.log(props);
     return (
         <div>
-            {props.app.dataLoaded ? <div className="display-none" /> : <Spinner />}
-            <HashRouter>
-                <div>
-                    <div className="start-page-wrapper" >
-                        <Header />
-                        <ContentRoute />
-                    </div>
+            {props.dataLoading && <Spinner />}
+            <BrowserRouter>
+                <div className="app-wrapper" >
+                    <Header />
+                    <AppRoute />
+                    <Footer />
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         </div>
     );
 };
 
-export default StartPage;
+export default connect(
+    state => ({
+        dataLoading: state.app.dataLoading,
+    }),
+)(App);
+
+App.propTypes = {
+    dataLoading: PropTypes.bool.isRequired,
+};

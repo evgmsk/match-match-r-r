@@ -1,35 +1,43 @@
 $ice: #eaf9fe;
-$fire: #db4210;
-$life: #23aa39;
 $menu-item-color: #ffffff;
-$imgPath: '../../images';
-$health: #be2b37;
-$experience: #ddbd49;
 $game-menu-btn: #f0e4bc;
 $game-menu-border: #6e220b;
-$submit-btn: #1f750d;
-$progress-bar-width: 150px;
-$progress-bar-height: 20px;
+$submit-btn: #43bb5d;
 $menu-main: #ffd600;
-$bg-popup: #2b65f0;
 $border-main: darken(#F57F17, 23%);
-$font-main: 2.4rem/1 'Rubic', 'Arial', 'sans-serif';
-$task-text-color: #64964c;
-$input-text-color: #212121;
 $bg-color-main: #388E3C;
 $bg-invite: #2E7D32;
 $bg-body: #80DEEA;
-$bg-menu-button: 6D4C41;
 $bg-inv-button: #4CAF50;
 $border-main: darken(#F57F17, 23%);
-$font-main: 2.4rem/2 Helvetica, 'sans-serif';
 $text-color-main: #fefefe;
 $input-text-color: #212121;
 $error-color: #DD2C00;
 $menu-item-focus: #FFFF00;
-$menu-item-color: #ffffff;
-$imgPath: '../img';
-
+$font-main: 2.2rem/1 'SFUIText', 'sans-serif';
+$font-menu-main: 2.4rem/1 'SFUIDisplay', 'sans-serif';
+$font-invitation: 2rem/1.5 'SFUIText', 'sans-serif';
+$imgPath: '../../images';
+$cards: (
+        'Artist',
+        'Bowery',
+        'Boxing',
+        'Chinese',
+        'BigSword',
+        'Boulevard',
+        'ChineseSword',
+        'Neopolitan',
+        'Cotillion',
+        'Hoboken',
+        'Irish',
+        'Mexican',
+        'Mike',
+        'Roman',
+        'Russian',
+        'Skater',
+        'Tenor',
+        'London',
+);
 @mixin flex($justify: space-between, $align: center, $row: row) {
   display: flex;
   justify-content: $justify;
@@ -53,21 +61,19 @@ $imgPath: '../img';
   justify-items:  center;
 }
 
-
-%inset-shadow {
-  box-shadow: inset 0 0 1.5rem rgba(10, 10, 10, .7);
-}
 %inset-shadow {
   box-shadow: inset 0 0 1.5rem rgba(10, 10, 10, .7);
 }
 
 %h {
-  font: 2rem/2 Helvetica, 'sans-serif';
+  font: 2rem/2 SFUIText, 'sans-serif';
+  font-weight: 600;
   color: $text-color-main;
 }
 
 %input {
-  font: 2rem/2 Georgia, 'serif';
+  font: 2rem/2 SFUIText, 'serif';
+  font-weight: 400;
   color: $input-text-color;
   height: 5rem;
 }
@@ -102,6 +108,7 @@ $imgPath: '../img';
 
 %card {
   backface-visibility: hidden;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   position: absolute;

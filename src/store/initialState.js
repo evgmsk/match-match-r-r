@@ -5,30 +5,22 @@ const InitialState = {
     player: {
         userName: '',
         userId: 0,
-        currentRecord: Infinity,
-    },
-    deck: [],
-    timer: {
-        started: false,
-        time: [0, 0],
+        records: [],
     },
     game: {
+        deck: [],
+        deckDrawing: false,
         difficulty: 'normal',
         skirt: 'x-mas-lebkuchen',
         showedCard: null,
         timeout: false,
+        newGame: false,
+        started: false,
+        time: [0, 0],
     },
     app: {
-        showInvitation: true,
-        showForm: false,
-        showDesk: false,
         totalRecords: [],
-        loadingData: true,
-    },
-    loginForm: {
-        nameValid: true,
-        emailValid: true,
-        passwordValid: true,
+        dataLoading: true,
     },
 };
 

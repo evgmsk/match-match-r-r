@@ -1,14 +1,19 @@
 /**
  * project match-match-r-r
  */
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../../js/actions/actionTypes';
 
 const app = (state = {}, action) => {
     switch (action.type) {
-        case (ActionTypes.SHOW_LOGIN_FORM):
+        case (ActionTypes.DATA_LOADING):
             return {
                 ...state,
-                showForm: action.showForm,
+                dataLoading: action.payload,
+            };
+        case (ActionTypes.TOTAL_RECORDS_LOADED):
+            return {
+                ...state,
+                totalRecords: action.payload,
             };
         default:
             return state;

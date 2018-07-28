@@ -41,6 +41,7 @@ module.exports = {
         "object-curly-spacing": "warn",
         "object-shorthand": "warn",
         "prefer-rest-params": "warn",
+        "react/forbid-prop-types": "warn",
         "react/jsx-indent-props": "warn",
         "react/jsx-indent": "warn",
         "react/jsx-filename-extension": "off",

@@ -1,0 +1,8 @@
+@import "../../../scss/constants";
+
+.header {
+  @include flex(space-between, center);
+  width: 100%;
+  min-width: 1000px;
+  height: 8rem;
+}

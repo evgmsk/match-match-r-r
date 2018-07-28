@@ -3,8 +3,8 @@
  */
 import { put, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga/utils';
-import { tick } from '../../actions/actionCreators/timerAction';
-import ActionTypes from '../../actions/actionTypes';
+import { tick } from '../../js/actions/gameActions';
+import ActionTypes from '../../js/actions/actionTypes';
 
 const defineTime = timer => {
     let time = timer.time;
@@ -29,5 +29,6 @@ function* workerTimer(store) {
 }
 
 export default function* watcherTimer(store) {
+    console.log();
     yield takeLatest(ActionTypes.START_TIMER, () => workerTimer(store));
 }

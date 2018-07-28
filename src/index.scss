@@ -1,7 +1,14 @@
-@import "./scss/reset";
+@import './scss/reset.scss', './scss/_constants.scss';
+
+/* You can add global styles to this file, and also import other style files */
+/*---------------------------------------------------------------------------*
+ * SF UI Display
+ *---------------------------------------------------------------------------*/
+
 @font-face {
   font-family: 'SFUIText';
   src: url('./fonts/SFUIText-Semibold.eot');
+  src: local('./fonts/SF UI Text Semibold'), local('./fonts/SFUIText-Semibold'),
   url('./fonts/SFUIText-Semibold.eot?#iefix') format('embedded-opentype'),
   url('./fonts/SFUIText-Semibold.woff') format('woff'),
   url('./fonts/SFUIText-Semibold.ttf') format('truetype');
@@ -12,6 +19,7 @@
 @font-face {
   font-family: 'SFUIText';
   src: url('./fonts/SFUIText-Regular.eot');
+  src: local('./fonts/SF UI Text Regular'), local('./fonts/SFUIText-Regular'),
   url('./fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
   url('./fonts/SFUIText-Regular.woff') format('woff'),
   url('./fonts/SFUIText-Regular.ttf') format('truetype');
@@ -22,6 +30,7 @@
 @font-face {
   font-family: 'SFUIText';
   src: url('./fonts/SFUIText-Medium.eot');
+  src: local('./fonts/SF UI Text Medium'), local('./fonts/SFUIText-Medium'),
   url('./fonts/SFUIText-Medium.eot?#iefix') format('embedded-opentype'),
   url('./fonts/SFUIText-Medium.woff') format('woff'),
   url('./fonts/SFUIText-Medium.ttf') format('truetype');
@@ -32,26 +41,31 @@
 @font-face {
   font-family: 'SFUIDisplay';
   src: url('./fonts/SFUIDisplay-Bold.eot');
+  src: local('./fontsSF UI Display Bold'), local('./fontsSFUIDisplay-Bold'),
   url('./fonts/SFUIDisplay-Bold.eot?#iefix') format('embedded-opentype'),
   url('./fonts/SFUIDisplay-Bold.woff') format('woff'),
   url('./fonts/SFUIDisplay-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
+
 html {
   font-size: 10px;
+  @media (max-width: 1200px) {
+    font-size: 9px;
+    line-height: 2;
+  }
+  @media (max-width: 600px) {
+    font-size: 8px;
+    line-height: 2;
+  }
 }
+
 body {
-  font: 1.4rem/2.5rem 'SFUIText', Hevetica, 'sans-serif';
+  font: $font-main;
   font-weight: 400;
   font-style: normal;
   letter-spacing: normal;
   font-stretch: normal;
   color: #2f2f2f;
-}
-
-@media (max-width: 900px) {
-  html{
-    font-size: 9px;
-  }
 }

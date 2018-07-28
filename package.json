@@ -7,7 +7,7 @@
     "build": "webpack -p --progress",
     "prestart": "npm run build",
     "start": "babel-node ./server/server.js",
-    "dev": "webpack-dev-server",
+    "dev": "set NODE_ENV=dev&&babel-node ./server/devServer.js",
     "lint": "set NODE_ENV=lint&&babel-node ./server/devServer.js"
   },
   "keywords": [
@@ -20,8 +20,9 @@
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015-ie": "^6.7.0",
+    "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",

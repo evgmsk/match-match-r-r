@@ -3,18 +3,20 @@
  */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Invitation from './ui/Invitation/InvitationPage';
-import LoginPage from './ui/Login/LoginPage';
-import GamePage from './ui/Game/GamePage';
-import { MainRoutes } from '../../ConstsData/constants';
+import InvitationPage from './containers/invitationPage/InvitationPage';
+import LoginPage from './ui/loginPage/LoginPage';
+import GamePage from './ui/gamePage/GamePage';
+import { MainMenuRoutes } from './constants/mainMenuRoutes';
 
-const StartPageRoute = () =>
-    <Switch>
-        <Route exact path={MainRoutes.HOME.path} component={Home} />
-        <Route exact path={MainRoutes.DRAWBOX.path} component={DrawBoxContainer} />
-        <Route exact path={MainRoutes.LOGIN.path} component={LogPage} />
-        <Route exact path={MainRoutes.ABOUT.path} component={About} />
-        <Route exact path={MainRoutes.GAME.path} component={GamePageContainer} />
-    </Switch>;
+const AppRoute = props => {
+    console.log(props);
+    return (
+        <Switch>
+            <Route exact path={MainMenuRoutes.HOME} component={InvitationPage} />
+            <Route path={MainMenuRoutes.LOGIN} component={LoginPage} />
+            <Route path={MainMenuRoutes.GAME} component={GamePage} />
+        </Switch>
+    );
+};
 
-export default StartPageRoute;
+export default AppRoute;

@@ -1,0 +1,52 @@
+@import '../common/_variables', '../mixin/_placeholders', '../mixin/mixins';
+
+
+
+.form-fieldset {
+  position: relative;
+  width: 100%;
+  margin: 5rem auto 0;
+  @include flex(space-around, stretch);
+  label {
+    display: block;
+    width: 30%;
+    min-width: 15rem;
+  }
+  input {
+    background: #fefefe;
+    padding: 0 1rem;
+    width: 60%;
+    @extend %input;
+    min-width: 18rem;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    &.invalid-input {
+      border: solid 2px $error-color;
+    }
+  }
+  [type='submit'] {
+    margin: 2rem auto;
+    font: 2.3rem/2 Helvetica, 'sans-serif';
+    font-weight: 600;
+    border-radius: 10px;
+    max-width: 30rem;
+    color: darken($bg-invite, 10%);
+    &:hover {
+      color: $text-color-main;
+      cursor: pointer;
+      background-color: $bg-inv-button;
+    }
+  }
+  .email-error{
+    position: absolute;
+    top: 5rem;
+    right: 50%;
+    transform: translateX(70%);
+    min-width: 30rem;
+    visibility: hidden;
+    color: $error-color;
+    font-size: 1.8rem;
+  }
+}
+

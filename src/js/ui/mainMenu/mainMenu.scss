@@ -1,0 +1,8 @@
+@import "../../../Scss/constants";
+
+.menu-wrapper {
+  position: relative;
+  width: 70%;
+  @include flex(space-around, center);
+  margin: 0 auto;
+}

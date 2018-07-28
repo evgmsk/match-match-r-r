@@ -1,47 +1,39 @@
-const paths = require('./configs/paths');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const postFlexBugsFix = require('postcss-flexbugs-fixes');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const paths = require('./configs/paths');
+
 const extractCss = new ExtractTextWebpackPlugin({
     filename: 'css/[name].css',
     allChunks: true,
 });
 
-const env = !process.env['NODE_ENV'];
+const env = !process.env.NODE_ENV;
 
 // common plugins
 const plugins = [
     new HtmlWebpackPlugin({
-        template: paths.templeHtml
+        template: paths.templeHtml,
     }),
 ];
-console.log(env);
-if(env) { // prod config
+
+if (env) { // prod config
     plugins.push(extractCss);
-    plugins.push(new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': JSON.stringify("production")
-        }
-    }));
-} else {  // dev-config
+} else { // dev-config
     plugins.push(new webpack.HotModuleReplacementPlugin());
-    plugins.push(new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': JSON.stringify("development")
-        }
-    }));
 }
 
-const lint = process.env['NODE_ENV'] !== 'lint' ? {} : {
+const lint = process.env.NODE_ENV !== 'lint' ? {} : {
     test: /\.jsx?$/,
         enforce: 'pre',
     use: [
     {
         options: {
-            baseConfig: '.eslintrc.js'
+            baseConfig: '.eslintrc.js',
         },
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
     },
 ],
     include: paths.srcPath,
@@ -54,7 +46,7 @@ const postcssRules = {
     options: {
         ident: 'postcss',
         plugins: () => [
-            require('postcss-flexbugs-fixes'),
+            postFlexBugsFix,
             autoprefixer({
                 browsers: [
                     '>1%',
@@ -75,7 +67,7 @@ const cssDev = {
         'style-loader',
         'css-loader',
         postcssRules,
-    ]
+    ],
 };
 
 const cssProd = {
@@ -87,8 +79,8 @@ const cssProd = {
                 {
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1
-                    }
+                        importLoaders: 1,
+                    },
                 },
                 postcssRules,
             ],
@@ -109,7 +101,7 @@ const scssProd = {
                     loader: 'css-loader',
                     options: {
                         minimize: true,
-                        options: { importLoaders: 2 }
+                        options: { importLoaders: 2 },
                     },
                 },
                 postcssRules,
@@ -134,8 +126,8 @@ const scssDev = {
 const scssRules = env ? scssProd : scssDev;
 
 // entry
-const entry = [paths.indexJsPath];
-   // : ['webpack-hot-middleware/client?path=/__webpack_hmr&reload=true', paths.indexJsPath];
+const entry = env ? ['babel-polyfill', paths.indexJsPath]
+    : ['babel-polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true', paths.indexJsPath];
 
 // devtool
 const devtool = env ? 'source-map' : 'eval';
@@ -173,7 +165,14 @@ module.exports = {
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: 'img/[name].[hash:8].[ext]',
+                    name: 'images/[name].[hash:8].[ext]',
+                },
+            },
+            {
+                test: /\.(?:woff|woff2|eot|ttf)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[hash:8].[ext]',
                 },
             },
         ],

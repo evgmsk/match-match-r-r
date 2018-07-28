@@ -1,0 +1,30 @@
+/**
+ * project match-match-r-r
+ */
+const ActionTypes = {
+    // player actions
+    SAVE_PLAYER: 'SAVE_PLAYER',
+    SAVE_RECORD: 'SAVE_RECORD',
+    // card actions
+    CARD_DRAWING: 'CARD_DRAWING',
+    CARD_OPENING: 'CARD_OPENING',
+    CARD_OPENED: 'CARD_OPENED',
+    CARDS_CLOSING: 'CARDS_CLOSING',
+    CARDS_HIDING: 'CARDS_HIDING',
+    // game actions
+    SET_DECK: 'SET_DECK',
+    DECK_DRAWING: 'DRAWING_DECK',
+    DECK_DRAWN: 'DECK_DRAWN',
+    SET_DIFFICULTY: 'SET_DIFFICULTY',
+    SET_SKIRT: 'SET_SKIRT',
+    SHOWED_CARDS: 'SHOWED_CARDS',
+    HIDDEN_CARDS: 'HIDDEN_CARDS',
+    START_TIMER: 'START_TIMER',
+    TICK: 'TICK',
+    NEW_GAME: 'NEW_GAME',
+    // app action
+    TOTAL_RECORDS_LOADED: 'TOTAL_RECORDS_LOADED',
+    DATA_LOADING: 'DATA_LOADING',
+};
+
+export default ActionTypes;

@@ -1,0 +1,49 @@
+@import "../../../scss/constants";
+
+.game-section {
+  position: relative;
+  background: radial-gradient(ellipse farthest-side, #ffffff, $border-main);
+  width: 98%;
+  min-width: 40rem;
+  margin: 0 auto;
+  min-height: calc(100vh - 15rem);
+  box-sizing: border-box;
+  border-radius: 27px;
+  padding: 2rem;
+  @extend %inset-shadow;
+  @media (min-width: 1300px) {
+    max-width: 90%;
+    min-width: 80%;
+  }
+}
+.game-desk-wrapper{
+  position: relative;
+  border-radius: 2rem;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side, $bg-color-main, darken($bg-color-main, 5%));
+  min-height: calc(100vh - 19rem);
+  @media (max-width: 760px) {
+    min-height: calc(100vh - 15rem);
+  }
+  .game-desk {
+    min-height: calc(100vh - 19rem);
+    //background: url('#{$imgPath}/publicdomainq-panda.svg') no-repeat;
+    position: relative;
+    border-radius: 18px;
+    @extend %inset-shadow;
+    transition: background-size .5s;
+    @media (max-width: 760px) {
+      min-height: calc(100vh - 15rem);
+    }
+  }
+  .big-panda {
+    position: absolute;
+    top: -100px;
+    left: -140px;
+    transform: scale(0.5);
+    transition: transfrom 0.5s;
+  }
+  .big-panda.big {
+    transform: scale(1);
+  }
+}
