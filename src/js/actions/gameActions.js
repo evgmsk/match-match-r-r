@@ -8,8 +8,14 @@ export const setDifficulty = difficulty => ({
     payload: difficulty,
 });
 
-export const newGame = () => ({
+export const setSkirt = skirt => ({
+    type: ActionTypes.SET_SKIRT,
+    payload: skirt,
+});
+
+export const newGame = bool => ({
     type: ActionTypes.NEW_GAME,
+    payload: bool,
 });
 
 export const startGame = bool => ({

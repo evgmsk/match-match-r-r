@@ -1,0 +1,23 @@
+@import "../../../scss/_constants";
+
+.records-section {
+  background: darken($bg-color-main, 5%);
+  width: 80%;
+  height: 80%;
+  padding: 1.5rem 1.5rem 5rem;
+  color: $text-color-main;
+  font: $font-main;
+  border: solid .1rem darken($border-main, 5%);
+  border-radius: 18px;
+  max-width: 100rem;
+  @include flex(space-around, center, column);
+  h2 {
+    font-size: 3rem;
+    padding: 3rem;
+    justify-self: flex-start;
+  }
+}
+.records-wrapper {
+  width: 80%;
+  @include recordGrid();
+}

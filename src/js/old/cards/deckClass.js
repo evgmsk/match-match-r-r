@@ -3,7 +3,7 @@
  */
 import Card from './cardClass';
 import { DefaultLevel, DefaultSkirt } from '../game/constants';
-import { CardsImages, CardsSkirts } from '../constants/cardsUrls';
+import { CardsImages, CardsSkirts } from '../../constants/cards';
 
 export default class Deck {
     constructor(deck) {

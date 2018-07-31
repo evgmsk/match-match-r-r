@@ -1,0 +1,16 @@
+@import "../../../scss/constants";
+
+.game-timer {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse farthest-side, $border-main, darken($border-main, 1%));
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 3rem;
+  width: 15rem;
+  color: $ice;
+  @extend %inset-shadow;
+  z-index: 2;
+}

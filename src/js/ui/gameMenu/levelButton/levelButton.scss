@@ -1,0 +1,21 @@
+@import "../../../../scss/constants";
+
+.game-menu-item.drop-menu {
+  .level-item {
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 3rem 0;
+    color: $game-menu-border;
+    font-size: 2rem;
+    &:hover,
+    &:focus,
+    &.active {
+      text-decoration: underline;
+    }
+    &.active {
+      cursor: default;
+    }
+  }
+}

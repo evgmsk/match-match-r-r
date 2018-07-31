@@ -7,9 +7,11 @@ const ActionTypes = {
     SAVE_RECORD: 'SAVE_RECORD',
     // card actions
     CARD_DRAWING: 'CARD_DRAWING',
+    CARD_DRAWN: 'CARD_DRAWN',
     CARD_OPENING: 'CARD_OPENING',
     CARD_OPENED: 'CARD_OPENED',
     CARDS_CLOSING: 'CARDS_CLOSING',
+    CARD_CLOSED: 'CARD_CLOSED',
     CARDS_HIDING: 'CARDS_HIDING',
     // game actions
     SET_DECK: 'SET_DECK',
@@ -24,6 +26,8 @@ const ActionTypes = {
     NEW_GAME: 'NEW_GAME',
     // app action
     TOTAL_RECORDS_LOADED: 'TOTAL_RECORDS_LOADED',
+    HIDE_MAIN_MENU: 'HIDE_MAIN_MENU',
+    DROP_MAIN_MENU: 'DROP_MAIN_MENU',
     DATA_LOADING: 'DATA_LOADING',
 };
 

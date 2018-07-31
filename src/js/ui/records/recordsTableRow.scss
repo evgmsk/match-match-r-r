@@ -1,0 +1,19 @@
+@import "../../../scss/constants";
+
+.table-row {
+  font-size: 2.2rem;
+  height: 4rem;
+  width: 100%;
+  border-right: solid 1px $game-menu-btn;
+  border-bottom: solid 1px $game-menu-btn;
+  text-align: center;
+  line-height: 4rem;
+  box-sizing: border-box;
+  &.player-name {
+    border-left: solid 1px $game-menu-btn;
+    text-align: left;
+    span {
+      padding-left: 1rem;
+    }
+  }
+}

@@ -49,15 +49,15 @@
     animation: hover .3s;
   }
 }
-//@for $i from 0 to 3 {
-//  .card-skirt #{$i} {
-//    background: url('#{$imgPath}/skirt/#{$i}.jpg') no-repeat;
-//    background-size: cover;
-//  }
-//}
-@each $card in $cards {
-  .card-skirt #{$card} {
-    background: url('#{$imgPath}/cards/#{$card}.jpg') no-repeat;
+@each $face in $cards {
+  .card-face.#{$face} {
+    background: url('#{$cardsPath}/#{$face}.jpg') no-repeat;
+    background-size: cover;
+  }
+}
+@each $skirt in $skirts {
+  .card-skirt.#{$skirt} {
+    background: url('#{$imgPath}/skirts/x-mas-#{$skirt}.jpg') no-repeat;
     background-size: cover;
   }
 }

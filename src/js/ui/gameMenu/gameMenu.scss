@@ -1,0 +1,58 @@
+@import "../../../scss/constants";
+
+.game-menu-wrapper {
+  @include flex(space-around, center, column);
+  max-width: 50rem;
+  width: 40%;
+  // transition: opacity .6s;
+  @media (min-width: 400px) {
+    flex-direction: row;
+  }
+}
+.game-menu-item.drop-menu {
+  width: 12rem;
+  position: relative;
+  height: 2.7rem;
+  padding: 0.5rem 1rem;
+  background: $border-main;
+  @extend %inset-shadow;
+  border: solid 1px $border-main;
+  border-radius: 5rem;
+  color: $ice;
+  font: $font-main;
+  .drop-menu-title {
+    height: 2.7rem;
+    line-height: 2.7rem;
+    color: $ice;
+  }
+  .drop-menu-list {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    width: 12rem;
+    top: 3.9rem;
+    left: 0;
+    border-radius: 3rem;
+    @include flex(space-around, center, column);
+    border: solid 1px $game-menu-border;
+    background: lighten($bg-body, 15%);
+    @extend %inset-shadow;
+    transform: scale(0);
+    transition: transform .3s;
+    z-index: 0;
+  }
+  &:focus,
+  &:hover {
+    .drop-menu-title {
+      color: $game-menu-border;
+    }
+    .drop-menu-list {
+      transform: scale(1);
+      z-index: 1;
+    }
+    background: transparent;
+    cursor: default;
+  }
+  &.active {
+
+  }
+}

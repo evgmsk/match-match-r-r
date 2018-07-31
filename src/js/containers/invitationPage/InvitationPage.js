@@ -16,7 +16,6 @@ class Invitation extends React.Component {
 
     componentDidMount() {
         this.props.onLoadData(false);
-        console.log(this.props.onLoadData);
     }
     onClick(e) {
         e.stopPropagation();

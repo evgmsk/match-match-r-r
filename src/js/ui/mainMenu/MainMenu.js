@@ -3,15 +3,15 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MainMenuTitles } from '../../constants/mainMenuRoutes';
+import MainRoutes from '../../constants/mainMenuRoutes';
 import MenuItem from './menuItem';
 import './mainMenu.scss';
 
-const MainMenu = props => {
+const MainMenu = React.forwardRef((props, ref) => {
     return (
-        <nav className={props.className}>
+        <nav className={props.className} ref={ref}>
             {
-                MainMenuTitles.map((x, i) => {
+                MainRoutes.map((x, i) => {
                     return <MenuItem
                         key={i.toString()}
                         href={x.path}
@@ -21,7 +21,7 @@ const MainMenu = props => {
             }
         </nav>
     );
-};
+});
 MainMenu.propTypes = {
     className: PropTypes.string.isRequired,
 };

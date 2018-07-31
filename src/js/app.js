@@ -1,8 +1,8 @@
 /**
  * project match-match-r-r
  */
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { HashRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AppRoute from './appRoute';
@@ -14,16 +14,16 @@ import './app.scss';
 const App = props => {
     console.log(props);
     return (
-        <div>
+        <Fragment>
             {props.dataLoading && <Spinner />}
-            <BrowserRouter>
+            <HashRouter>
                 <div className="app-wrapper" >
                     <Header />
                     <AppRoute />
                     <Footer />
                 </div>
-            </BrowserRouter>
-        </div>
+            </HashRouter>
+        </Fragment>
     );
 };
 

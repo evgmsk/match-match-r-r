@@ -1,0 +1,30 @@
+@import "../../../scss/constants";
+
+.table-head {
+  font-size: 2.5rem;
+  height: 5rem;
+  width: 100%;
+  border-right: solid 1px $game-menu-btn;
+  border-top: solid 1px $game-menu-btn;
+  text-align: center;
+  line-height: 5rem;
+  box-sizing: border-box;
+  &.player-name {
+    grid-area: 1 / 1 / 3 / 2;
+    height: 10rem;
+    border-left: solid 1px $game-menu-btn;
+    border-bottom: solid 1px $game-menu-btn;
+    text-align: left;
+    span {
+      padding-left: 1rem;
+    }
+  }
+  &.player-records {
+    grid-area: 1 / 2 / 2 / 6;
+    align-self: flex-start;
+    justify-self: center;
+  }
+  &.difficulty-level {
+    border-bottom: solid 1px $game-menu-btn;
+  }
+}

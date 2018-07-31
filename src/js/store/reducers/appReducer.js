@@ -1,7 +1,7 @@
 /**
  * project match-match-r-r
  */
-import ActionTypes from '../../js/actions/actionTypes';
+import ActionTypes from '../../actions/actionTypes';
 
 const app = (state = {}, action) => {
     switch (action.type) {
@@ -14,6 +14,16 @@ const app = (state = {}, action) => {
             return {
                 ...state,
                 totalRecords: action.payload,
+            };
+        case (ActionTypes.HIDE_MAIN_MENU):
+            return {
+                ...state,
+                mainMenu: action.payload,
+            };
+        case (ActionTypes.DROP_MAIN_MENU):
+            return {
+                ...state,
+                mainMenuDropped: !state.mainMenuDropped,
             };
         default:
             return state;

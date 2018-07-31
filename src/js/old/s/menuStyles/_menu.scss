@@ -1,4 +1,4 @@
-@import "../../s/common/_variables", "../mixin/_mixins", "../mixin/_placeholders";
+@import "../on/_variables", "../mixin/_mixins", "../mixin/_placeholders";
 
 .head-menu {
   @include flex();

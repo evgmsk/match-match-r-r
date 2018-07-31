@@ -1,7 +1,7 @@
 /**
  * project match-match-r-r
  */
-import ActionTypes from '../../js/actions/actionTypes';
+import ActionTypes from '../../actions/actionTypes';
 
 const timer = (state = {}, action) => {
     switch (action.type) {

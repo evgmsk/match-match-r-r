@@ -1,0 +1,20 @@
+@import "../../../../scss/constants";
+
+.game-menu-item.game-menu-button {
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0.5rem 1rem;
+  background: $border-main;
+  @extend %inset-shadow;
+  border: solid 1px $border-main;
+  border-radius: 5rem;
+  color: $ice;
+  font: $font-main;
+  outline: none;
+  &:focus,
+  &:hover {
+    color: $game-menu-border;
+    background: transparent;
+    cursor: pointer;
+  }
+}

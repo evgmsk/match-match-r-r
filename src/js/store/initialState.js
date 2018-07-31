@@ -10,13 +10,13 @@ const InitialState = {
     game: {
         deck: [],
         deckDrawing: false,
-        difficulty: 'normal',
-        skirt: 'x-mas-lebkuchen',
+        difficulty: 'medium',
+        skirt: 'lebkuchen',
         showedCard: null,
         timeout: false,
         newGame: false,
         started: false,
-        time: [0, 0],
+        time: 0,
     },
     app: {
         totalRecords: [],
