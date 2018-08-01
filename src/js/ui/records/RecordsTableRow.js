@@ -5,7 +5,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './recordsTableRow.scss';
 
-import '../../containers/recordsPage/recordsPage.scss';
+import '../recordsPage/recordsPage.scss';
 
 const RecordsPageRow = props => {
     const { player } = props;

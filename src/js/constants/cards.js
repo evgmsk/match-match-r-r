@@ -3,29 +3,36 @@
  */
 // cards images
 
-export const CardsImages = {
-    Artist: 'Artist',
-    Bowery: 'Bowery',
-    Boxing: 'Boxing',
-    Chinese: 'Chinese',
-    BigSword: 'BigSword',
-    Boulevard: 'Boulevard',
-    ChineseSword: 'ChineseSword',
-    Neopolitan: 'Neopolitan',
-    Cotillion: 'Cotillion',
-    Hoboken: 'Hoboken',
-    Irish: 'Irish',
-    Mexican: 'Mexican',
-    Mike: 'Mike',
-    Roman: 'Roman',
-    Russian: 'Russian',
-    Skater: 'Skater',
-    Tenor: 'Tenor',
-    London: 'London',
+export const CardsFaces = [
+    'Artist',
+    'Bowery',
+    'Boxing',
+    'Chinese',
+    'BigSword',
+    'Boulevard',
+    'ChineseSword',
+    'Neopolitan',
+    'Cotillion',
+    'Hoboken',
+    'Irish',
+    'Mexican',
+    'Mike',
+    'Roman',
+    'Russian',
+    'Skater',
+    'Tenor',
+    'London',
+];
+
+export const LevelToNumber = {
+    low: 3,
+    medium: 6,
+    high: 12,
+    ultimate: 18,
 };
 
-export const CardsSkirts = {
-    lebkuchen: 'lebkuchen',
-    nussknacker: 'nussknacker',
-    snowflake: 'snowflake',
-};
+export const CardsSkirts = [
+    'lebkuchen',
+    'nussknacker',
+    'snowflake',
+];

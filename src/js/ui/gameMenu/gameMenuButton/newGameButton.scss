@@ -5,16 +5,23 @@
   line-height: 4rem;
   padding: 0.5rem 1rem;
   background: $border-main;
-  @extend %inset-shadow;
-  border: solid 1px $border-main;
+  @extend %game-menu-shadow;
+  border: solid 1px $game-menu-border;
   border-radius: 5rem;
   color: $ice;
   font: $font-main;
   outline: none;
+  order: -1;
+  margin: 0 10rem;
   &:focus,
   &:hover {
+    @extend %inset-shadow;
     color: $game-menu-border;
     background: transparent;
     cursor: pointer;
+  }
+  @media (min-width: $firstMediaBreak) {
+    order: 0;
+    margin: 0;
   }
 }

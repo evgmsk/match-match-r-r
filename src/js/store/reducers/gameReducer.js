@@ -5,26 +5,34 @@ import ActionTypes from '../../actions/actionTypes';
 
 const card = (state = {}, action) => {
     switch (action.type) {
-        case (ActionTypes.CARD_DRAWING):
-            return {
-                ...state,
-                started: action.payload,
+        case (ActionTypes.OPEN_CARD):
+            return (state.cardId !== action.payload)
+                ? state
+                : {
+                    ...state,
+                opened: true,
             };
-        case (ActionTypes.CARD_OPENING):
-            return {
-                ...state,
-                opening: action.payload,
-            };
-        case (ActionTypes.CARD_DRAWN):
-            return {
-                ...state,
-                started: action.payload,
-            };
-        case (ActionTypes.CARDS_CLOSING):
-            return {
-                ...state,
-                time: action.payload,
-            };
+        case (ActionTypes.DRAW_CARD):
+            return (state.cardId !== action.payload)
+                ? state
+                : {
+                    ...state,
+                    onDesk: true,
+                };
+        case (ActionTypes.CLOSE_CARD):
+            return (state.cardId !== action.payload)
+                ? state
+                : {
+                    ...state,
+                    opened: false,
+                };
+        case (ActionTypes.HIDE_CARD):
+            return (state.cardId !== action.payload)
+                ? state
+                : {
+                    ...state,
+                    onDesk: false,
+                };
         default:
             return state;
     }
@@ -32,17 +40,14 @@ const card = (state = {}, action) => {
 
 const deck = (state = [], action) => {
     switch (action.type) {
-        case (ActionTypes.CARD_DRAWING):
+        case (ActionTypes.DRAW_CARD):
             return state.map(c => card(c, action));
-        case (ActionTypes.CARD_OPENING):
+        case (ActionTypes.OPEN_CARD):
             return state.map(c => card(c, action));
-        case (ActionTypes.CARD_DRAWN):
+        case (ActionTypes.CLOSE_CARD):
             return state.map(c => card(c, action));
-        case (ActionTypes.CARDS_CLOSING):
-            return {
-                ...state,
-                time: action.payload,
-            };
+        case (ActionTypes.HIDE_CARD):
+            return state.map(c => card(c, action));
         default:
             return state;
     }
@@ -54,20 +59,30 @@ const game = (state = {}, action) => {
                 ...state,
                 difficulty: action.payload,
             };
+        case (ActionTypes.DRAWING_DECK):
+            return {
+                ...state,
+                deckDrawing: action.payload,
+            };
         case (ActionTypes.SET_SKIRT):
             return {
                 ...state,
                 skirt: action.payload,
+            };
+        case (ActionTypes.SET_DECK):
+            return {
+                ...state,
+                deck: action.payload,
             };
         case (ActionTypes.SHOWED_CARDS):
             return {
                 ...state,
                 showedCard: action.payload,
             };
-        case (ActionTypes.NEW_GAME):
+        case (ActionTypes.NEW_GAME_INIT):
             return {
                 ...state,
-                newGame: action.payload,
+                newGameInit: action.payload,
             };
         case (ActionTypes.START_TIMER):
             return {
@@ -77,7 +92,32 @@ const game = (state = {}, action) => {
         case (ActionTypes.TICK):
             return {
                 ...state,
-                time: action.payload,
+                time: state.time + 1,
+            };
+        case (ActionTypes.RESET_TIME):
+            return {
+                ...state,
+                time: 0,
+            };
+        case (ActionTypes.DRAW_CARD):
+            return {
+                ...state,
+                deck: deck(state.deck, action),
+            };
+        case (ActionTypes.OPEN_CARD):
+            return {
+                ...state,
+                deck: deck(state.deck, action),
+            };
+        case (ActionTypes.CLOSE_CARD):
+            return {
+                ...state,
+                deck: deck(state.deck, action),
+            };
+        case (ActionTypes.HIDE_CARD):
+            return {
+                ...state,
+                deck: deck(state.deck, action),
             };
         default:
             return state;

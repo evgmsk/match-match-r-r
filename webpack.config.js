@@ -127,7 +127,7 @@ const scssRules = env ? scssProd : scssDev;
 
 // entry
 const entry = env ? ['babel-polyfill', paths.indexJsPath]
-    : ['babel-polyfill', 'webpack-hot-sagas/client?path=/__webpack_hmr&reload=true', paths.indexJsPath];
+    : ['babel-polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true', paths.indexJsPath];
 
 // devtool
 const devtool = env ? 'source-map' : 'eval';

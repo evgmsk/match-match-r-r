@@ -9,7 +9,7 @@ import './skritButton.scss';
 const SkirtButtonsWrapper = () => {
     return (
         <div className="game-menu-item drop-menu">
-            <span className="drop-menu-title">Cards skirt</span>
+            <button className="drop-menu-title">Cards skirt</button>
             <ul className="drop-menu-list">
                 {GameMenu.Skirts.map(s =>
                     <li key={s.skirtName}>

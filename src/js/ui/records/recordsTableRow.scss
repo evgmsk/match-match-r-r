@@ -10,6 +10,7 @@
   line-height: 4rem;
   box-sizing: border-box;
   &.player-name {
+    flex-shrink: 2;
     border-left: solid 1px $game-menu-btn;
     text-align: left;
     span {

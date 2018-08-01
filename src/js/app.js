@@ -12,7 +12,6 @@ import Spinner from './ui/onloadDataSpinner/SpinnerUI';
 import './app.scss';
 
 const App = props => {
-    console.log(props);
     return (
         <Fragment>
             {props.dataLoading && <Spinner />}

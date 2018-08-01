@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { onLoadData } from '../../actions/appActions';
-import InvitionContent from '../../ui/invitation/InvitationContent';
+import InvitionContent from '../invitation/InvitationContent';
 import './invitationPage.scss';
 
 class Invitation extends React.Component {

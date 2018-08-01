@@ -3,8 +3,8 @@
  */
 import GamePage from '../ui/gamePage/GamePage';
 import LoginPage from '../ui/loginPage/LoginPage';
-import RecordsPage from '../containers/recordsPage/RecordsPage';
-import Invitation from '../containers/invitationPage/InvitationPage';
+import RecordsPage from '../ui/recordsPage/RecordsPage';
+import Invitation from '../ui/invitationPage/InvitationPage';
 
 const MainRoutes = [
     {

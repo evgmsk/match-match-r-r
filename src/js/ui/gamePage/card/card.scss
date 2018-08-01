@@ -1,17 +1,27 @@
-@import "../../scss/constants";
-
-%card-container {
+@import "../../../../scss/constants";
+.card-wrapper {
+  background: none;
+  border: none;
+}
+.card-container {
+  background: none;
+  border: none;
+  margin: 0;
   @include flex();
   width: 8rem;
-  height: calc(8rem * 1.55);
+  height: calc(8rem * 1.47);
   max-width: 20rem;
   max-height: 30rem;
   perspective: 100rem;
+  &.hidden {
+    visibility: hidden;
+  }
   @media (min-width: 900px) {
     width: 10rem;
     height: calc(10rem * 1.47);
   }
   .card-flipper {
+    display: block;
     position: relative;
     width: 95%;
     height: 95%;
@@ -51,13 +61,13 @@
 }
 @each $face in $cards {
   .card-face.#{$face} {
-    background: url('#{$cardsPath}/#{$face}.jpg') no-repeat;
-    background-size: cover;
+    background: url('#{$deepImgPath}/cards/#{$face}.jpg') no-repeat;
+    background-size: 100%;
   }
 }
 @each $skirt in $skirts {
   .card-skirt.#{$skirt} {
-    background: url('#{$imgPath}/skirts/x-mas-#{$skirt}.jpg') no-repeat;
-    background-size: cover;
+    background: url('#{$deepImgPath}/skirts/x-mas-#{$skirt}.jpg') no-repeat;
+    background-size: 100%;
   }
 }

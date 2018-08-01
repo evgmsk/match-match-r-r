@@ -14,7 +14,7 @@ const InitialState = {
         skirt: 'lebkuchen',
         showedCard: null,
         timeout: false,
-        newGame: false,
+        newGameInit: false,
         started: false,
         time: 0,
     },

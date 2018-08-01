@@ -3,33 +3,30 @@
 .menu-wrapper {
   position: relative;
   width: 70%;
-  @include flex(space-around, center);
   margin: 0 auto;
-  &.dropped {
-    flex-direction: column;
-    position: absolute;
-    width: 15rem;
-    margin: 0;
-    top: 75px;
-    right: 1%;
-  }
+  display: none;
   &.burger {
     display: none;
   }
+  &.dropped,
   &.burger.dropped {
+    position: absolute;
+    width: 15rem;
     @include flex(space-around, center, column);
     border: solid 1px $game-menu-border;
     background: lighten($bg-body, 15%);
     @extend %inset-shadow;
     border-radius: 2rem;
     padding: 1rem 0;
-    width: 15rem;
     height: 25rem;
     margin: 0;
     top: 75px;
     right: 1%;
     z-index: 10;
     animation: animateTop .4s;
+  }
+  @media (min-width: $firstMediaBreak) {
+    @include flex(space-around, center);
   }
 }
 

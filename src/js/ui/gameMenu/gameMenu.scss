@@ -1,58 +1,69 @@
 @import "../../../scss/constants";
 
 .game-menu-wrapper {
-  @include flex(space-around, center, column);
+  @include flex(space-around, center, row);
   max-width: 50rem;
-  width: 40%;
+  min-width: 12rem;
+  flex-wrap: wrap;
+  width: 80%;
+
   // transition: opacity .6s;
-  @media (min-width: 400px) {
-    flex-direction: row;
+  @media (min-width: 990px) {
+    width: 40%;
   }
 }
 .game-menu-item.drop-menu {
-  width: 12rem;
   position: relative;
+  width: 13rem;
   height: 2.7rem;
   padding: 0.5rem 1rem;
   background: $border-main;
-  @extend %inset-shadow;
-  border: solid 1px $border-main;
-  border-radius: 5rem;
+  border: solid 1px $game-menu-border;
+  @extend %game-menu-shadow;
+  border-radius: 3rem;
   color: $ice;
   font: $font-main;
   .drop-menu-title {
     height: 2.7rem;
     line-height: 2.7rem;
+    font: $font-main;
+    background: none;
+    border: none;
     color: $ice;
   }
   .drop-menu-list {
     position: absolute;
     padding: 0.5rem 1rem;
-    width: 12rem;
+    width: 13rem;
     top: 3.9rem;
     left: 0;
     border-radius: 3rem;
-    @include flex(space-around, center, column);
     border: solid 1px $game-menu-border;
     background: lighten($bg-body, 15%);
     @extend %inset-shadow;
-    transform: scale(0);
-    transition: transform .3s;
-    z-index: 0;
+    display: none;
   }
   &:focus,
   &:hover {
+    @extend %inset-shadow;
     .drop-menu-title {
       color: $game-menu-border;
     }
     .drop-menu-list {
-      transform: scale(1);
-      z-index: 1;
+      @include flex(space-around, center, column);
+      z-index: 10;
+      animation: dropMenu .4s
     }
     background: transparent;
     cursor: default;
   }
   &.active {
-
+    @include flex(space-around, center, column);
+    z-index: 10;
+    animation: dropMenu .4s
   }
+}
+@keyframes dropMenu {
+  from {top: -50rem; opacity: 0}
+  to {top: 3.9rem; opacity: 1}
 }

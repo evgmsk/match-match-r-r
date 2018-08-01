@@ -28,7 +28,7 @@ const listen = (port) =>
 
 app.use(devMiddleware(compiler, {
     stats: 'minimal',
-    publicPath: '/',
+    publicPath: paths.publicPath,
 }));
 
 app.use(hotMiddleware(compiler, {

@@ -4,26 +4,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// import _ from 'lodash';
 import { onLoadData } from '../../actions/appActions';
+import { openCard, setDeck } from '../../actions/gameActions';
+// import { CardsFaces, LevelToNumber } from '../../constants/cards';
 import Panda from '../../../images/publicdomainq-panda.svg';
 import Timer from './Timer';
-import Card from '../Card';
+import Card from './card/Card';
 import './gamePage.scss';
-// {started && deck.map(card => <Card key={card.id} {...card} />)}
+
 class GamePage extends React.Component {
    componentDidMount() {
+       console.log(this.props)
         this.props.onLoadData(false);
    }
+   /*componentDidUpdate() {
+       if (this.props.game.newGameInit)
+           this.createDeck();
+   }
+   createDeck() {
+
+   }*/
    render() {
-       const { deck, started, newGame, skirt } = this.props;
-       const bigPandaClass = (started || newGame) ? 'small-panda' : 'big-panda';
+       const { deck, started, newGameInit, skirt } = this.props.game;
+       const bigPandaClass = (started || newGameInit) ? 'small-panda' : 'big-panda';
        return (
            <section className="game-section">
-               <Timer time={this.props.time} />
+               <Timer time={this.props.game.time} />
                <div className="game-desk-wrapper">
                    <div className="game-desk">
                        <img className={bigPandaClass} src={Panda} alt="" />
-                       {deck.map(card => <Card key={card.id} {...card} skirt={skirt} />)}
+                       {deck.map(card =>
+                           <Card
+                               key={card.cardId.toString()}
+                               {...card}
+                               skirt={skirt}
+                               openCard={this.props.openCard}
+                           />)}
                    </div>
                </div>
            </section>
@@ -33,20 +50,15 @@ class GamePage extends React.Component {
 
 export default connect(
     state => ({
-        deck: state.game.deck,
-        time: state.game.time,
-        newGame: state.game.newGame,
-        started: state.game.started,
-        skirt: state.game.skirt,
+        game: state.game,
+        difficulty: state.game.difficulty,
     }),
-    { onLoadData },
+    { onLoadData, openCard, setDeck },
 )(GamePage);
 
 GamePage.propTypes = {
-    deck: PropTypes.arrayOf(PropTypes.object).isRequired,
-    time: PropTypes.number.isRequired,
-    newGame: PropTypes.bool.isRequired,
-    started: PropTypes.bool.isRequired,
-    skirt: PropTypes.string.isRequired,
+    game: PropTypes.objectOf(PropTypes.any).isRequired,
     onLoadData: PropTypes.func.isRequired,
+    setDeck: PropTypes.func.isRequired,
+    openCard: PropTypes.func.isRequired,
 };

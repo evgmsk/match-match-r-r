@@ -17,10 +17,12 @@ const Header = props => {
     };
     const headerClassName = game ? 'game-header' : 'header';
     const mainMenuClassName = game ? 'menu-wrapper burger' : 'menu-wrapper';
+    const burgerClassName = `burger-menu-button ${!game && 'hidden'}`;
     return (
         <header className={headerClassName}>
             <MainMenu className={mainMenuClassName} ref={menuRef} />
-            {game && <Fragment><GameMenu /><BurgerMenuButton onClick={onClick} /></Fragment>}
+            {game && <GameMenu />}
+            <BurgerMenuButton className={burgerClassName} onClick={onClick} />
         </header>
     );
 };

@@ -7,17 +7,17 @@ import { tick } from '../../actions/gameActions';
 import ActionTypes from '../../actions/actionTypes';
 
 
-function* workerDeck({store}) {
+function* workerDeck(deck) {
     // The sagasMiddleware will start running timer generator.
-    console.log(arguments);
-    let deckLength = store.getState().deck.length;
+    let deckLength = deck.length;
     while (deckLength) {
         deckLength -= 1;
         yield delay(200);
-        yield put(tick(time));
+        yield put({ type: ActionTypes.DRAW_CARD, payload: deckLength });
     }
 }
 
-export default function* watcherDeck() {
-    yield takeLatest(ActionTypes.DECK_DRAWING, workerDeck);
+export default function* watcherDeck(store) {
+    yield takeLatest(ActionTypes.DRAWING_DECK, () => workerDeck(store.getState().game.deck));
+    // yield takeLatest(ActionTypes.OPEN_CARD, () => console.log('ff'));
 }

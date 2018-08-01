@@ -12,16 +12,21 @@
   border: solid 1px transparent;
   outline: none;
   border-radius: 5rem;
-  @extend %inset-shadow;
+  @extend %game-menu-shadow;
   cursor: pointer;
   span {
     border-radius: 1rem;
+  }
+  &.hidden {
+    @media (min-width: $firstMediaBreak) {
+      display: none;
+    }
   }
 }
 
 .burger-menu-button:hover,
 .burger-menu-button:focus {
-    background: transparent;
+  background: transparent;
   border: solid 1px $game-menu-border;
 }
 .burger-menu-button:hover span,
@@ -34,10 +39,9 @@
 }
 
 .burger-menu-button.clicked span {
-    position: absolute;
-    top: 45%;
-    left: 21.5%;
-    transition: all 0.5s;
+  position: absolute;
+  top: 45%;
+  transition: all 0.5s;
 }
 .burger-menu-button.clicked .first-line {
     transform: rotate(45deg) scale(1.3);

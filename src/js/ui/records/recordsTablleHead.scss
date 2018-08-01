@@ -15,6 +15,7 @@
     border-left: solid 1px $game-menu-btn;
     border-bottom: solid 1px $game-menu-btn;
     text-align: left;
+    flex-shrink: 2;
     span {
       padding-left: 1rem;
     }

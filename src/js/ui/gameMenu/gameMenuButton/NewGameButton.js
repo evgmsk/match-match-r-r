@@ -1,13 +1,10 @@
 /**
  * project match-match-r-r
  */
-/**
- * project match-match-r-r
- */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { newGame } from '../../../actions/gameActions';
+import { newGameInit } from '../../../actions/gameActions';
 import './newGameButton.scss';
 
 const NewGameButton = props => {
@@ -16,12 +13,12 @@ const NewGameButton = props => {
         e.preventDefault();
         e.stopPropagation();
         e.target.blur();
-        props.newGame(true);
+        props.newGameInit(true);
     };
     const onKeyDown = e => {
         e.stopPropagation();
         if (e.key === 'Enter' || e.key === 'Space')
-            props.newGame(true);
+            props.newGameInit(true);
     };
     return (
         <button
@@ -35,10 +32,10 @@ const NewGameButton = props => {
 };
 
 NewGameButton.propTypes = {
-    newGame: PropTypes.func.isRequired,
+    newGameInit: PropTypes.func.isRequired,
 };
 
 export default connect(
     null,
-    { newGame },
+    { newGameInit },
 )(NewGameButton);

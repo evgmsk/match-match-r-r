@@ -38,10 +38,21 @@
   .small-panda,
   .big-panda{
     position: absolute;
-    transform: translate(-150px, -110px) scale(0.5);
-    transition: transform 0.5s;
+    transition: all 0.5s;
+  }
+  .small-panda {
+    width: 30%;
+    @media (min-width: 600px) {
+      width: 20%;
+    }
   }
   .big-panda {
-    transform: translate(80px, 100px) scale(1.3);
+    width: 50%;
+    @media (min-width: 600px) {
+      height: 60%;
+    }
+    @media (min-width: 990px) {
+      height: 80%;
+    }
   }
 }

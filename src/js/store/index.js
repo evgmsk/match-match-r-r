@@ -21,7 +21,7 @@ const storeFactory = (data = initialState) => {
         combineReducers({ player, game, app }),
         data, reduxToolsExt,
     );
-    sagaMiddleware.run(sagaRoot);
+    sagaMiddleware.run(() => sagaRoot(store));
     return store;
 };
 

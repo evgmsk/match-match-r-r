@@ -3,12 +3,11 @@ $game-menu-btn: #f0e4bc;
 $game-menu-border: #6e220b;
 $submit-btn: #43bb5d;
 $menu-main: #ffd600;
-$border-main: darken(#F57F17, 23%);
 $bg-color-main: #388E3C;
 $bg-invite: #2E7D32;
 $bg-body: #80DEEA;
 $bg-inv-button: #4CAF50;
-$border-main: darken(#F57F17, 23%);
+$border-main: darken(#F57F17, 20%);
 $text-color-main: #fefefe;
 $input-text-color: #212121;
 $error-color: #DD2C00;
@@ -16,6 +15,7 @@ $menu-item-focus: #FFFF00;
 $font-main: 2.2rem/1 'SFUIText', 'sans-serif';
 $font-menu-main: 2.4rem/1 'SFUIDisplay', 'sans-serif';
 $font-invitation: 2rem/1.5 'SFUIText', 'sans-serif';
+$firstMediaBreak: 500px;
 $imgPath: '../../images';
 $cardsPath: '../../images/cards';
 $deepImgPath: '../../../../images';
@@ -59,16 +59,22 @@ $skirts: (
   justify-items:  center;
 }
 
-@mixin recordGrid() {
+@mixin recordGrid($name: 30%) {
   display: grid;
-  grid-template-columns: 30% repeat(4, 1fr);
+  grid-template-columns: calc(#{$name} * .7) repeat(4, 1fr);
   grid-auto-rows: 1fr;
   align-content: center;
   justify-items:  center;
+  @media (min-width: $firstMediaBreak) {
+    grid-template-columns: $name repeat(4, 1fr);
+  }
 }
 
 %inset-shadow {
   box-shadow: inset 0 0 1.5rem rgba(10, 10, 10, .7);
+}
+%game-menu-shadow {
+  box-shadow: inset 0 0 2.5rem rgba(10, 10, 10, .5);
 }
 
 %input {

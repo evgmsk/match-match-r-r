@@ -16,7 +16,7 @@ const BurgerMenuButton = props => {
         ref.current.blur();
         props.onClick();
     };
-    const buttonProps = { disabled, className: 'burger-menu-button', onClick: onClickBurger };
+    const buttonProps = { disabled, className: props.className, onClick: onClickBurger };
     return (
         <button {...buttonProps} ref={ref}>
             <span className="first-line" />
@@ -28,14 +28,15 @@ const BurgerMenuButton = props => {
 
 export default connect(
     state => ({
-        newGame: state.game.newGame,
+        newGameInit: state.game.newGameInit,
         started: state.game.started,
     }),
 )(BurgerMenuButton);
 
 BurgerMenuButton.propTypes = {
     onClick: PropTypes.func,
-    newGame: PropTypes.bool.isRequired,
+    className: PropTypes.string.isRequired,
+    newGameInit: PropTypes.bool.isRequired,
     started: PropTypes.bool.isRequired,
 };
 

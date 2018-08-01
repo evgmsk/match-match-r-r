@@ -10,7 +10,7 @@ import './levelButton.scss';
 const LevelButtonsWrapper = () => {
     return (
         <div className="game-menu-item drop-menu">
-            <span className="drop-menu-title">Game level</span>
+            <button className="drop-menu-title">Game level</button>
             <ul className="drop-menu-list">
                 {GameMenu.Levels.map(level =>
                     <li key={level.value}>
