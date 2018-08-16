@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import _ from 'lodash';
 import { onLoadData } from '../../actions/appActions';
-import { openCard, setDeck } from '../../actions/gameActions';
-// import { CardsFaces, LevelToNumber } from '../../constants/cards';
+import { openCard, setDeck } from '../../actions/deckActions';
+import DeskClasses from '../../constants/deskClasses';
 import Panda from '../../../images/publicdomainq-panda.svg';
 import Timer from './Timer';
 import Card from './card/Card';
@@ -15,8 +15,7 @@ import './gamePage.scss';
 
 class GamePage extends React.Component {
    componentDidMount() {
-       console.log(this.props)
-        this.props.onLoadData(false);
+       this.props.onLoadData(false);
    }
    /*componentDidUpdate() {
        if (this.props.game.newGameInit)
@@ -26,13 +25,15 @@ class GamePage extends React.Component {
 
    }*/
    render() {
-       const { deck, started, newGameInit, skirt } = this.props.game;
-       const bigPandaClass = (started || newGameInit) ? 'small-panda' : 'big-panda';
+       const { deck, game } = this.props;
+       const { started, skirt, timeout } = game;
+       const bigPandaClass = (started || timeout) ? 'small-panda' : 'big-panda';
+       const deskClass = `game-desk ${DeskClasses[game.difficulty]}`;
        return (
            <section className="game-section">
-               <Timer time={this.props.game.time} />
+               <Timer />
                <div className="game-desk-wrapper">
-                   <div className="game-desk">
+                   <div className={deskClass}>
                        <img className={bigPandaClass} src={Panda} alt="" />
                        {deck.map(card =>
                            <Card
@@ -51,14 +52,14 @@ class GamePage extends React.Component {
 export default connect(
     state => ({
         game: state.game,
-        difficulty: state.game.difficulty,
+        deck: state.deck,
     }),
-    { onLoadData, openCard, setDeck },
+    { onLoadData, openCard },
 )(GamePage);
 
 GamePage.propTypes = {
     game: PropTypes.objectOf(PropTypes.any).isRequired,
+    deck: PropTypes.arrayOf(PropTypes.any).isRequired,
     onLoadData: PropTypes.func.isRequired,
-    setDeck: PropTypes.func.isRequired,
     openCard: PropTypes.func.isRequired,
 };

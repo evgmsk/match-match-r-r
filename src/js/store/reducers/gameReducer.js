@@ -3,56 +3,7 @@
  */
 import ActionTypes from '../../actions/actionTypes';
 
-const card = (state = {}, action) => {
-    switch (action.type) {
-        case (ActionTypes.OPEN_CARD):
-            return (state.cardId !== action.payload)
-                ? state
-                : {
-                    ...state,
-                opened: true,
-            };
-        case (ActionTypes.DRAW_CARD):
-            return (state.cardId !== action.payload)
-                ? state
-                : {
-                    ...state,
-                    onDesk: true,
-                };
-        case (ActionTypes.CLOSE_CARD):
-            return (state.cardId !== action.payload)
-                ? state
-                : {
-                    ...state,
-                    opened: false,
-                };
-        case (ActionTypes.HIDE_CARD):
-            return (state.cardId !== action.payload)
-                ? state
-                : {
-                    ...state,
-                    onDesk: false,
-                };
-        default:
-            return state;
-    }
-};
-
-const deck = (state = [], action) => {
-    switch (action.type) {
-        case (ActionTypes.DRAW_CARD):
-            return state.map(c => card(c, action));
-        case (ActionTypes.OPEN_CARD):
-            return state.map(c => card(c, action));
-        case (ActionTypes.CLOSE_CARD):
-            return state.map(c => card(c, action));
-        case (ActionTypes.HIDE_CARD):
-            return state.map(c => card(c, action));
-        default:
-            return state;
-    }
-};
-const game = (state = {}, action) => {
+export const game = (state = {}, action) => {
     switch (action.type) {
         case (ActionTypes.SET_DIFFICULTY):
             return {
@@ -69,11 +20,6 @@ const game = (state = {}, action) => {
                 ...state,
                 skirt: action.payload,
             };
-        case (ActionTypes.SET_DECK):
-            return {
-                ...state,
-                deck: action.payload,
-            };
         case (ActionTypes.SHOWED_CARDS):
             return {
                 ...state,
@@ -89,39 +35,18 @@ const game = (state = {}, action) => {
                 ...state,
                 started: action.payload,
             };
-        case (ActionTypes.TICK):
-            return {
-                ...state,
-                time: state.time + 1,
-            };
-        case (ActionTypes.RESET_TIME):
-            return {
-                ...state,
-                time: 0,
-            };
-        case (ActionTypes.DRAW_CARD):
-            return {
-                ...state,
-                deck: deck(state.deck, action),
-            };
-        case (ActionTypes.OPEN_CARD):
-            return {
-                ...state,
-                deck: deck(state.deck, action),
-            };
-        case (ActionTypes.CLOSE_CARD):
-            return {
-                ...state,
-                deck: deck(state.deck, action),
-            };
-        case (ActionTypes.HIDE_CARD):
-            return {
-                ...state,
-                deck: deck(state.deck, action),
-            };
         default:
             return state;
     }
 };
 
-export default game;
+export const time = (state = 0, action) => {
+    switch (action.type) {
+        case (ActionTypes.TICK):
+            return state + 1;
+        case (ActionTypes.RESET_TIME):
+            return 0;
+        default:
+            return state;
+    }
+};

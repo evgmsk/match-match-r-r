@@ -11,9 +11,12 @@ export const setSkirt = skirt => ({
     type: ActionTypes.SET_SKIRT,
     payload: skirt,
 });
-export const newGameInit = bool => ({
-    type: ActionTypes.NEW_GAME_INIT,
+export const setTimeout = bool => ({
+    type: ActionTypes.SET_SKIRT,
     payload: bool,
+});
+export const newGameInit = () => ({
+    type: ActionTypes.NEW_GAME_INIT,
 });
 export const startGame = bool => ({
     type: ActionTypes.START_TIMER,
@@ -29,37 +32,3 @@ export const resetTime = () => ({
 export const tick = () => ({
     type: ActionTypes.TICK,
 });
-export const cardOpened = difficulty => ({
-    type: ActionTypes.SHOWED_CARDS,
-    payload: difficulty,
-});
-export const setDeck = deck => {
-    return {
-        type: ActionTypes.SET_DECK,
-        payload: deck,
-    };
-};
-export const drawCard = id => {
-    return {
-        type: ActionTypes.DRAW_CARD,
-        payload: id,
-    };
-};
-export const openCard = id => {
-    return {
-        type: ActionTypes.OPEN_CARD,
-        payload: id,
-    };
-};
-export const closeCard = id => {
-    return {
-        type: ActionTypes.CLOSE_CARD,
-        payload: id,
-    };
-};
-export const hideCard = id => {
-    return {
-        type: ActionTypes.HIDE_CARD,
-        payload: id,
-    };
-};

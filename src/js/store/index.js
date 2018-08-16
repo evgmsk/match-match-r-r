@@ -4,7 +4,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import player from './reducers/playerReducer';
-import game from './reducers/gameReducer';
+import { game, time } from './reducers/gameReducer';
+import deck from './reducers/deckReducer';
 import app from './reducers/appReducer';
 import initialState from './initialState';
 import sagaRoot from './sagas/sagaRoot';
@@ -18,7 +19,7 @@ const reduxToolsExt = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVT
 
 const storeFactory = (data = initialState) => {
     const store = applyMiddleware(saver, sagaMiddleware)(createStore)(
-        combineReducers({ player, game, app }),
+        combineReducers({ player, game, time, app, deck }),
         data, reduxToolsExt,
     );
     sagaMiddleware.run(() => sagaRoot(store));

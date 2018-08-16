@@ -1,7 +1,7 @@
 /**
  * project match-match-r-r
  */
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, take } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import ActionTypes from '../../actions/actionTypes';
 
@@ -17,5 +17,8 @@ function* workerTimer() {
 }
 
 export default function* watcherTimer() {
-    yield takeLatest(ActionTypes.START_TIMER, workerTimer);
+    const action = yield take(ActionTypes.START_TIMER);
+    if (action.payload) {
+        yield workerTimer();
+    }
 }

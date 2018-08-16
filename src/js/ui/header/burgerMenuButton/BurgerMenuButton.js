@@ -8,7 +8,7 @@ import './burgerMenuButton.scss';
 
 const BurgerMenuButton = props => {
     const ref = React.createRef();
-    const disabled = (props.newGame || props.started) && 'disabled';
+    const disabled = (props.timeout || props.started);
     const onClickBurger = e => {
         e.preventDefault();
         e.stopPropagation();
@@ -28,7 +28,7 @@ const BurgerMenuButton = props => {
 
 export default connect(
     state => ({
-        newGameInit: state.game.newGameInit,
+        timeout: state.game.timeout,
         started: state.game.started,
     }),
 )(BurgerMenuButton);
@@ -36,7 +36,7 @@ export default connect(
 BurgerMenuButton.propTypes = {
     onClick: PropTypes.func,
     className: PropTypes.string.isRequired,
-    newGameInit: PropTypes.bool.isRequired,
+    timeout: PropTypes.bool.isRequired,
     started: PropTypes.bool.isRequired,
 };
 

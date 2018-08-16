@@ -7,16 +7,15 @@ const InitialState = {
         userId: 0,
         records: [],
     },
+    deck: [],
+    time: 0,
     game: {
-        deck: [],
         deckDrawing: false,
         difficulty: 'medium',
         skirt: 'lebkuchen',
         showedCard: null,
         timeout: false,
-        newGameInit: false,
         started: false,
-        time: 0,
     },
     app: {
         totalRecords: [],

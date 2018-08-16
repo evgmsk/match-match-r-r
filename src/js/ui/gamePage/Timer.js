@@ -3,9 +3,11 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './timer.scss';
 
 const Timer = props => {
+    console.log(props)
     const time = t => {
         let minutes = Math.round(t / 60).toString();
         let sec = (t % 60).toString();
@@ -25,4 +27,8 @@ Timer.propTypes = {
     time: PropTypes.number.isRequired,
 };
 
-export default Timer;
+export default connect(
+    state => ({
+        time: state.time,
+    }),
+)(Timer);

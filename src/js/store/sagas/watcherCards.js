@@ -8,13 +8,8 @@ import Timeouts from '../../constants/timeouts';
 
 function* workerDeck({ payload }) {
     // The sagasMiddleware will start running timer generator.
-    let deckLength = payload.length;
-    while (deckLength) {
-        deckLength -= 1;
-        yield delay(Timeouts.drawCard);
-        yield put({ type: ActionTypes.DRAW_CARD, payload: payload[deckLength] });
-    }
-    yield put({ type: ActionTypes.START_TIMER, payload: true });
+    yield delay(Timeouts.openCard);
+    yield put({ });
 }
 
 export default function* watcherDeck() {

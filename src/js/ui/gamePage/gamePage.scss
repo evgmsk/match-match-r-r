@@ -22,7 +22,7 @@
   box-sizing: border-box;
   background: radial-gradient(farthest-side, $bg-color-main, darken($bg-color-main, 5%));
   min-height: calc(100vh - 19rem);
-  @media (max-width: 760px) {
+  @media (max-width: 767px) {
     min-height: calc(100vh - 15rem);
   }
   .game-desk {
@@ -31,7 +31,7 @@
     border-radius: 18px;
     @extend %inset-shadow;
     transition: background-size .5s;
-    @media (max-width: 760px) {
+    @media (max-width: 767px) {
       min-height: calc(100vh - 15rem);
     }
   }
@@ -53,6 +53,148 @@
     }
     @media (min-width: 990px) {
       height: 80%;
+    }
+  }
+}
+.game-desk {
+  min-width: 35rem;
+  width: 100%;
+  max-width: 140rem;
+}
+
+.nine-to-four {
+  @include grid(4);
+  & .card-container {
+    @extend %card-container;
+  }
+  @media (min-width: 501px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  @media screen and (orientation: portrait) {
+    grid-template-columns: repeat(6, 1fr);
+    @media (min-width: 1000px) {
+      .card-container {
+        @include width-and-height(14rem);
+      }
+    }
+    @media (max-width: 500px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(9, 1fr);
+    .card-container {
+      @include width-and-height(12rem);
+    }
+  }
+}
+
+.eight-to-three {
+  @include grid(4);
+  & .card-container{
+    @extend %card-container;
+  }
+  @media screen and (orientation: portrait) {
+    grid-template-columns: repeat(4, 1fr);
+    .card-container {
+      @include width-and-height(10rem);
+    }
+    @media (min-width: 760px) {
+      grid-template-columns: repeat(6, 1fr);
+      .card-container {
+        @include width-and-height(12rem);
+      }
+    }
+    @media (min-width: 1000px) {
+      .card-container {
+        @include width-and-height(14rem);
+      }
+    }
+  }
+  @media (min-width: 900px) and (orientation: landscape) {
+    grid-template-columns: repeat(6, 1fr);
+    .card-container {
+      @include width-and-height(12rem);
+    }
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(8, 1fr);
+    .card-container {
+      @include width-and-height(14rem);
+    }
+  }
+  @media (min-width: 1600px) {
+    .card-container {
+      @include width-and-height(16rem);
+    }
+  }
+}
+
+.four-to-three {
+  @include grid(3);
+  & .card-container{
+    @extend %card-container;
+    @include width-and-height(13rem);
+  }
+
+  @media screen and (orientation: portrait) {
+    @media (min-width: 7600px) {
+      .card-container {
+        @include width-and-height(14rem);
+      }
+    }
+    @media (min-width: 1000px) {
+      .card-container {
+        @include width-and-height(18rem);
+      }
+    }
+  }
+  @media screen  and (orientation: landscape) {
+    grid-template-columns: repeat(4, 1fr);
+    .card-container {
+      @include width-and-height(13rem);
+    }
+    @media (min-width: 900px) {
+      .card-container {
+        @include width-and-height(14rem);
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .card-container {
+      @include width-and-height(15rem);
+    }
+  }
+  @media (min-width: 1600px) {
+    .card-container {
+      @include width-and-height(16rem);
+    }
+  }
+}
+
+.three-to-two {
+  @include grid(2);
+  & .card-container{
+    @extend %card-container;
+    width: 16rem;
+    height: calc(16rem * 1.45);
+  }
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(3, 1fr);
+    .card-container {
+      @include width-and-height(18rem);
+    }
+  }
+  @media screen and (orientation: portrait) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1200px) {
+    .card-container {
+      @include width-and-height(20rem);
     }
   }
 }

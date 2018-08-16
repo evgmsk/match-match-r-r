@@ -13,12 +13,12 @@ const NewGameButton = props => {
         e.preventDefault();
         e.stopPropagation();
         e.target.blur();
-        props.newGameInit(true);
+        props.newGameInit();
     };
     const onKeyDown = e => {
         e.stopPropagation();
         if (e.key === 'Enter' || e.key === 'Space')
-            props.newGameInit(true);
+            props.newGameInit();
     };
     return (
         <button
