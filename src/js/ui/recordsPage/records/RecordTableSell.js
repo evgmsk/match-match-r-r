@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MaxTime } from '../../constants/constants';
+import { MaxTime } from '../../../constants/constants';
 
 const RecordTableSell = props => {
     return (

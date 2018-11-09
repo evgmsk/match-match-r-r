@@ -3,7 +3,7 @@
  */
 import React, { Fragment } from 'react';
 import RecordTableHeadSell from './RecordsTableHeadSell';
-import { Levels } from '../../constants/constants';
+import { Levels } from '../../../constants/constants';
 import './recordsTablleHead.scss';
 
 const RecordsTableHead = () => {
