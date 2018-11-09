@@ -5,7 +5,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import RecordTableSell from './RecordTableSell';
 import './recordsTableRow.scss';
-import '../recordsPage/recordsPage.scss';
 
 const RecordsTableRow = props => {
     const { name, records } = props;
