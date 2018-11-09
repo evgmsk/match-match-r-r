@@ -9,9 +9,20 @@ export const setDeck = deck => {
         payload: deck,
     };
 };
+export const clearDeck = () => {
+    return {
+        type: ActionTypes.CLEAR_DECK,
+    };
+};
 export const drawCard = id => {
     return {
         type: ActionTypes.DRAW_CARD,
+        payload: id,
+    };
+};
+export const chooseCard = id => {
+    return {
+        type: ActionTypes.CHOOSE_CARD,
         payload: id,
     };
 };

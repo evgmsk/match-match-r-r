@@ -12,7 +12,7 @@ const card = (state = {}, action) => {
                     ...state,
                     opened: true,
                 };
-        case (ActionTypes.CLOSE_CARD):
+         case (ActionTypes.CLOSE_CARD):
             return (state.cardId !== action.payload)
                 ? state
                 : {
@@ -41,6 +41,8 @@ const deck = (state = [], action) => {
             return state.map(c => card(c, action));
         case (ActionTypes.HIDE_CARD):
             return state.map(c => card(c, action));
+        case (ActionTypes.CLEAR_DECK):
+            return [];
         default:
             return state;
     }

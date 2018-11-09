@@ -1,24 +1,20 @@
 /**
  * project match-match-r-r
  */
-import { put, takeLatest, take } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import ActionTypes from '../../actions/actionTypes';
+import { Timeouts, MaxTime } from '../../constants/constants';
 
-
-function* workerTimer() {
-    // The sagasMiddleware will start running timer generator.
+function* workerTimer(action) {
     let count = 0;
-    while (count < 3600) {
+    while (action.payload && count < MaxTime) {
         count += 1;
-        yield delay(1000);
+        yield delay(Timeouts.timer);
         yield put({ type: ActionTypes.TICK });
     }
 }
 
 export default function* watcherTimer() {
-    const action = yield take(ActionTypes.START_TIMER);
-    if (action.payload) {
-        yield workerTimer();
-    }
+    yield takeLatest(ActionTypes.START_TIMER, workerTimer);
 }

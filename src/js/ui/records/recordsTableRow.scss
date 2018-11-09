@@ -1,8 +1,8 @@
 @import "../../../scss/constants";
 
 .table-row {
-  font-size: 2.2rem;
-  height: 4rem;
+  font-size: 1.9rem;
+  min-height: 4rem;
   width: 100%;
   border-right: solid 1px $game-menu-btn;
   border-bottom: solid 1px $game-menu-btn;
@@ -10,11 +10,9 @@
   line-height: 4rem;
   box-sizing: border-box;
   &.player-name {
-    flex-shrink: 2;
     border-left: solid 1px $game-menu-btn;
+    flex-shrink: 2;
     text-align: left;
-    span {
-      padding-left: 1rem;
-    }
+    padding-left: 1rem;
   }
 }

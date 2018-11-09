@@ -7,5 +7,4 @@ const SC = {
     port: 3001,
 };
 
-export default SC
-
+export default SC;

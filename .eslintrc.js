@@ -14,6 +14,7 @@ module.exports = {
     },
     "rules": {
         "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
         "arrow-body-style": "off",
         "arrow-parens": "off",
         "react/jsx-no-bind": "off",

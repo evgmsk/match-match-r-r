@@ -9,7 +9,7 @@
 
   // transition: opacity .6s;
   @media (min-width: 990px) {
-    width: 40%;
+    width: 50%;
   }
 }
 .game-menu-item.drop-menu {
@@ -17,11 +17,11 @@
   width: 13rem;
   height: 2.7rem;
   padding: 0.5rem 1rem;
-  background: $border-main;
+  color: $game-menu-border;
+  background: transparent;
   border: solid 1px $game-menu-border;
   @extend %game-menu-shadow;
   border-radius: 3rem;
-  color: $ice;
   font: $font-main;
   .drop-menu-title {
     height: 2.7rem;
@@ -29,7 +29,7 @@
     font: $font-main;
     background: none;
     border: none;
-    color: $ice;
+    color: $game-menu-border;
   }
   .drop-menu-list {
     position: absolute;
@@ -45,7 +45,7 @@
   }
   &:focus,
   &:hover {
-    @extend %inset-shadow;
+     @extend %inset-shadow;
     .drop-menu-title {
       color: $game-menu-border;
     }
@@ -64,6 +64,6 @@
   }
 }
 @keyframes dropMenu {
-  from {top: -50rem; opacity: 0}
+  from {top: 0; opacity: 0}
   to {top: 3.9rem; opacity: 1}
 }

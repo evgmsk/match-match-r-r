@@ -10,20 +10,10 @@ const app = (state = {}, action) => {
                 ...state,
                 dataLoading: action.payload,
             };
-        case (ActionTypes.TOTAL_RECORDS_LOADED):
+        case (ActionTypes.GET_RECORDS):
             return {
                 ...state,
                 totalRecords: action.payload,
-            };
-        case (ActionTypes.HIDE_MAIN_MENU):
-            return {
-                ...state,
-                mainMenu: action.payload,
-            };
-        case (ActionTypes.DROP_MAIN_MENU):
-            return {
-                ...state,
-                mainMenuDropped: !state.mainMenuDropped,
             };
         default:
             return state;

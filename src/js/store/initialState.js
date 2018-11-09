@@ -3,17 +3,16 @@
  */
 const InitialState = {
     player: {
-        userName: '',
-        userId: 0,
-        records: [],
+        name: '',
+        records: {},
+        logFail: null,
     },
     deck: [],
     time: 0,
     game: {
-        deckDrawing: false,
         difficulty: 'medium',
+        bigPanda: true,
         skirt: 'lebkuchen',
-        showedCard: null,
         timeout: false,
         started: false,
     },

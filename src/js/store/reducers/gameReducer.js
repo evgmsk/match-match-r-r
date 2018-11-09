@@ -10,10 +10,10 @@ export const game = (state = {}, action) => {
                 ...state,
                 difficulty: action.payload,
             };
-        case (ActionTypes.DRAWING_DECK):
+        case (ActionTypes.SET_TIMEOUT):
             return {
                 ...state,
-                deckDrawing: action.payload,
+                timeout: action.payload,
             };
         case (ActionTypes.SET_SKIRT):
             return {
@@ -25,10 +25,10 @@ export const game = (state = {}, action) => {
                 ...state,
                 showedCard: action.payload,
             };
-        case (ActionTypes.NEW_GAME_INIT):
+        case (ActionTypes.SET_PANDA):
             return {
                 ...state,
-                newGameInit: action.payload,
+                bigPanda: action.payload,
             };
         case (ActionTypes.START_TIMER):
             return {

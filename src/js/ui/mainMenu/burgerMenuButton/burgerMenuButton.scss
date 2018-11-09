@@ -1,0 +1,67 @@
+@import "../../../../scss/_constants";
+
+.burger-menu-button {
+  position: absolute;
+  top: 0.7rem;
+  right: 0;
+  @include flex(center, center, column);
+  height: 4.1rem;
+  width: 4.1rem;
+  background: transparent;
+  border: solid 1px $game-menu-border;
+  outline: none;
+  border-radius: 4.1rem;
+  @extend %game-menu-shadow;
+  cursor: pointer;
+  span {
+    position: relative;
+    display: block;
+    width: 2rem;
+    height: .3rem;
+    margin: 2px;
+    background: $game-menu-border;
+    transform: rotate(0);
+    transition: all 0.5s;
+    border-radius: 1rem;
+  }
+  .middle-line {
+    opacity: 1;
+    transition: all 0.5s;
+  }
+  &.false {
+    @media (min-width: $firstMediaBreak) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &.hidden {
+    @media (min-width: $firstMediaBreak) {
+      display: none;
+    }
+  }
+  &:hover,
+  &:focus {
+    @extend %inset-shadow;
+    span {
+      background: $game-menu-border;
+    }
+  }
+  &.clicked {
+    span {
+      position: absolute;
+      top: 1.6rem;
+      left: .85rem;
+      transition: all 0.5s;
+    }
+    .first-line {
+      transform: rotate(45deg) scale(1.2);
+    }
+    .middle-line {
+      opacity: 0;
+    }
+    .last-line {
+      transform: rotate(-45deg) scale(1.2);
+    }
+  }
+}
+

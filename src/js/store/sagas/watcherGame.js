@@ -2,20 +2,35 @@
  * project match-match-r-r
  */
 import { put, takeLatest } from 'redux-saga/effects';
-// import { delay } from 'redux-saga';
 import _ from 'lodash';
 import ActionTypes from '../../actions/actionTypes';
-import { CardsFaces, LevelToNumber } from '../../constants/cards';
+import { CardsFaces, LevelToNumber } from '../../constants/constants';
 
-function* workerGame(difficulty) {
-    // The sagasMiddleware will start running timer generator.
+function* endGame(store) {
+    const { game: { difficulty }, time, player: { records } } = store.getState();
+    yield put({ type: ActionTypes.START_TIMER, payload: false });
+    if (!records.difficulty || records.difficulty > time) {
+        yield put({
+            type: ActionTypes.SAVE_RECORD,
+            payload: { time, difficulty },
+        });
+    }
+    yield put({ type: ActionTypes.CLEAR_DECK });
     yield put({ type: ActionTypes.RESET_TIME });
-    yield put({ type: ActionTypes.SET_TIMEOUT });
+    yield put({ type: ActionTypes.SET_PANDA, payload: true });
+}
+
+function* initGame(store) {
+    const { difficulty } = store.getState().game;
+    yield put({ type: ActionTypes.RESET_TIME });
+    yield put({ type: ActionTypes.CLEAR_DECK });
+    yield put({ type: ActionTypes.SET_PANDA, payload: false });
+    yield put({ type: ActionTypes.SET_TIMEOUT, payload: true });
     const num = LevelToNumber[difficulty];
     const cards = _.shuffle(CardsFaces).slice(0, num);
-    let deck = cards.reduce((d, c) => {
+    let deck = cards.reduce((d, face) => {
         const card = {
-            face: c,
+            face,
             onDesk: true,
             opened: false,
         };
@@ -24,11 +39,11 @@ function* workerGame(difficulty) {
     }, []);
 
     deck = _.shuffle([...deck, ...deck]);
-    deck = deck.map((card, i) => ({ ...card, cardId: i }));
-    yield put({ type: ActionTypes.DRAWING_DECK, payload: true });
+    deck = deck.map((card, i) => ({ ...card, cardId: `card${i}` }));
     yield put({ type: ActionTypes.SET_DECK, payload: deck });
 }
 
 export default function* watcherGame(store) {
-    yield takeLatest(ActionTypes.NEW_GAME_INIT, () => workerGame(store.getState().game.difficulty));
+    yield takeLatest(ActionTypes.NEW_GAME_INIT, initGame, store);
+    yield takeLatest(ActionTypes.END_GAME, endGame, store);
 }

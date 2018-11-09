@@ -5,39 +5,49 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './card.scss';
 
-const Card = ({ face, skirt, cardId, onDesk, opened, openCard }) => {
-    const ref = React.createRef();
-    const onClick = e => {
-        console.log(ref.current);
-        openCard(parseInt(ref.current.id, 10));
-    };
-    const onKeyDown = e => {
-        openCard();
-    };
-    const className = `card-container${!onDesk ? ' hidden' : ''}${opened ? ' opened' : ''}`;
-    console.log(className, onDesk);
-    const faceClass = `card-face ${face}`;
-    const skirtClass = `card-skirt ${skirt}`;
-    const cardProps = { onClick, onKeyDown, className, id: cardId };
-    return (
-
-            <a {...cardProps} ref={ref} >
+class Card extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+    shouldComponentUpdate(props) {
+        const { skirt, onDesk, opened } = this.props;
+        return skirt !== props.skirt
+            || onDesk !== props.onDesk
+            || opened !== props.opened;
+    }
+    onClick(e) {
+        e.stopPropagation();
+        const { timeout, chooseCard, cardId, face } = this.props;
+        if (timeout)
+            return;
+        chooseCard({ cardId, face });
+    }
+    render() {
+        const { face, skirt, onDesk, cardId, opened } = this.props;
+        const className = `card-container${!onDesk ? ' hidden' : ''}${opened ? ' opened' : ''}`;
+        const faceClass = `card-face ${face}`;
+        const skirtClass = `card-skirt ${skirt}`;
+        const cardProps = { onClick: this.onClick, className, id: cardId };
+        return (
+            <button {...cardProps}>
                 <div className="card-flipper">
                     <div className={faceClass} />
                     <div className={skirtClass} />
                 </div>
-            </a>
+            </button>
+        );
+    }
+}
 
-
-    );
-};
 Card.propTypes = {
-    cardId: PropTypes.number.isRequired,
+    cardId: PropTypes.string.isRequired,
     skirt: PropTypes.string.isRequired,
     face: PropTypes.string.isRequired,
     onDesk: PropTypes.bool.isRequired,
     opened: PropTypes.bool.isRequired,
-    openCard: PropTypes.func.isRequired,
+    timeout: PropTypes.bool.isRequired,
+    chooseCard: PropTypes.func.isRequired,
 };
 
 export default Card;

@@ -3,21 +3,31 @@
  */
 import ActionTypes from '../../actions/actionTypes';
 
-const timer = (state = {}, action) => {
+const records = (state = {}, payload) => {
+    const { difficulty, time } = payload;
+    return { ...state, [difficulty]: time };
+};
+
+const player = (state = {}, action) => {
     switch (action.type) {
-        case (ActionTypes.START_TIMER):
+        case (ActionTypes.SAVE_RECORD):
             return {
                 ...state,
-                started: action.payload,
+                records: records(state.records, action.payload),
             };
-        case (ActionTypes.TICK):
+        case (ActionTypes.SET_PLAYER):
             return {
                 ...state,
-                time: action.payload,
+                name: action.payload.name,
+            };
+        case (ActionTypes.REGISTRATION_OR_LOG_FAIL):
+            return {
+                ...state,
+                logFail: action.payload,
             };
         default:
             return state;
     }
 };
 
-export default timer;
+export default player;

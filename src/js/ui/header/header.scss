@@ -3,12 +3,20 @@
 .header {
   position: relative;
   @include flex(space-between, center);
-  width: 100%;
+  width: 90%;
+  max-width: $max_width;
   height: 10rem;
 }
 .game-header {
   position: relative;
   @include flex(center, center);
-  width: 100%;
+  width: 98%;
+  max-width: $max_width;
   height: 10rem;
+  @media (min-width: $smallScreen) {
+    width: 90%
+  }
+  @media (min-width: $mediumScreen) {
+    width: 80%;
+  }
 }

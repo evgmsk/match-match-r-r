@@ -2,7 +2,6 @@
  * project match-match-r-r
  */
 import React from 'react';
-// import { connect } from 'react-redux';
 import LevelButtonsWrapper from './levelButton/LevelButtonsWrapper';
 import SkirtButtonsWrapper from './skirtButton/SkirtButtonsWrapper';
 import NewGameButton from './gameMenuButton/NewGameButton';

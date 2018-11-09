@@ -1,8 +1,9 @@
 @import "../../../scss/constants";
 
 .table-head {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   height: 5rem;
+  max-height: 10rem;
   width: 100%;
   border-right: solid 1px $game-menu-btn;
   border-top: solid 1px $game-menu-btn;
@@ -16,9 +17,7 @@
     border-bottom: solid 1px $game-menu-btn;
     text-align: left;
     flex-shrink: 2;
-    span {
-      padding-left: 1rem;
-    }
+    padding-left: 1rem;
   }
   &.player-records {
     grid-area: 1 / 2 / 2 / 6;

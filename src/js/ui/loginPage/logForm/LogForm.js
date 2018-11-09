@@ -1,15 +1,11 @@
 /**
- * project smartWizBattle
+ * project
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { savePlayer } from '../../../actions/playerActions';
 import {
-    validateEmail,
     validateName,
-    validatePassword,
 } from '../../../helperFunction/inputValidation';
 import FormFieldset from './inputs/FormFieldset';
 import './logForm.scss';
@@ -17,25 +13,34 @@ import './logForm.scss';
 class LogForm extends React.Component {
     constructor(props) {
         super(props);
-        this.email = React.createRef();
-        this.password = React.createRef();
         this.name = React.createRef();
         this.submit = this.submit.bind(this);
+    }
+    componentDidUpdate(oldProps) {
+        const { player } = this.props;
+        if (!player.logFail && player.name !== oldProps.player.name)
+            this.props.history.push('/game');
     }
     submit(e) {
         e.preventDefault();
         e.stopPropagation();
-        if (validateEmail(this.email.current.value)
-            && validatePassword(this.password.current.value)
-            && validateName(this.name.current.value)) {
-            this.props.history.push('/game');
-            this.props.savePlayer(this.name.value, this.email.current.value);
-            this.name.current.value = '';
-            this.email.current.value = '';
-            this.password.current.value = '';
+        const {
+            loginPlayer: login,
+            regPlayer: register,
+            player: { logFail },
+        } = this.props;
+        if (logFail) {
+            if (logFail.name === this.name.current.value)
+                register(logFail);
+            else
+                login({ name: this.name.current.value });
+        } else if (validateName(this.name.current.value)) {
+            login({ name: this.name.current.value });
         }
+        this.name.current.value = '';
     }
     render() {
+        const { logFail } = this.props.player;
         const inputsProps = [
             {
                 className: 'form-fieldset name-fieldset',
@@ -45,23 +50,10 @@ class LogForm extends React.Component {
                 onBlur: validateName,
                 ref: this.name,
             },
-            {
-                className: 'form-fieldset email-fieldset',
-                type: 'text',
-                label: 'Email',
-                placeholder: 'Your email *',
-                onBlur: validateEmail,
-                ref: this.email,
-            },
-            {
-                className: 'form-fieldset password-fieldset',
-                type: 'text',
-                label: 'Password',
-                placeholder: 'Your password',
-                onBlur: validatePassword,
-                ref: this.password,
-            },
         ];
+        if (logFail && logFail.name) {
+            this.name.current.value = logFail.name;
+        }
         return (
             <div className="login-wrapper">
                 <form
@@ -82,12 +74,11 @@ class LogForm extends React.Component {
     }
 }
 
-export default withRouter(connect(
-    null,
-    { savePlayer },
-)(LogForm));
+export default withRouter(LogForm);
 
 LogForm.propTypes = {
-    savePlayer: PropTypes.func.isRequired,
+    loginPlayer: PropTypes.func.isRequired,
+    regPlayer: PropTypes.func.isRequired,
     history: PropTypes.objectOf(PropTypes.any).isRequired,
+    player: PropTypes.objectOf(PropTypes.any).isRequired,
 };

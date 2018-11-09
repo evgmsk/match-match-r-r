@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { onLoadData } from '../../actions/appActions';
-import InvitionContent from '../invitation/InvitationContent';
+import InvitationContent from './invitation/InvitationContent';
 import './invitationPage.scss';
 
 class Invitation extends React.Component {
@@ -24,7 +24,7 @@ class Invitation extends React.Component {
     render() {
         return (
             <section className="invitation">
-                <InvitionContent onClick={this.onClick} />
+                <InvitationContent onClick={this.onClick} />
             </section>
         );
     }
@@ -32,14 +32,11 @@ class Invitation extends React.Component {
 
 
 Invitation.propTypes = {
-    onLoadData: PropTypes.func,
+    onLoadData: PropTypes.func.isRequired,
     history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
-Invitation.defaultProps = {
-    onLoadData: f => f,
-};
 
-const InvitationPage = connect(
+export default connect(
     null,
     dispatch => ({
         onLoadData(bool) {
@@ -47,5 +44,3 @@ const InvitationPage = connect(
         },
     }),
 )(Invitation);
-
-export default InvitationPage;

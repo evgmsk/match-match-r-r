@@ -26,6 +26,10 @@
     margin: 0 auto;
     font-size: 3rem;
     text-align: center;
+    width: 80%;
+    &.error {
+      color: $menu-main;
+    }
     @media (min-width: 768px) {
       font-size: 3.5rem;
       line-height: 7rem;

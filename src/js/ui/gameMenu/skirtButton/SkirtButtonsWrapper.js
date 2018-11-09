@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import SkirtButton from './SkirtButton';
-import GameMenu from '../../../constants/gameMenuTitles';
+import { CardsSkirts } from '../../../constants/constants';
 import './skritButton.scss';
 
 const SkirtButtonsWrapper = () => {
@@ -11,18 +11,14 @@ const SkirtButtonsWrapper = () => {
         <div className="game-menu-item drop-menu">
             <button className="drop-menu-title">Cards skirt</button>
             <ul className="drop-menu-list">
-                {GameMenu.Skirts.map(s =>
-                    <li key={s.skirtName}>
-                        <SkirtButton skirtName={s.skirtName} />
+                {CardsSkirts.map(skirt =>
+                    <li key={skirt}>
+                        <SkirtButton skirtName={skirt} />
                     </li>)
                 }
             </ul>
         </div>
     );
-};
-
-SkirtButtonsWrapper.propTypes = {
-
 };
 
 export default SkirtButtonsWrapper;

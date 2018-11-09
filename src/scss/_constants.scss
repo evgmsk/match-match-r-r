@@ -11,15 +11,15 @@ $border-main: darken(#F57F17, 20%);
 $text-color-main: #fefefe;
 $input-text-color: #212121;
 $error-color: #DD2C00;
-$menu-item-focus: #FFFF00;
 $font-main: 2.2rem/1 'SFUIText', 'sans-serif';
 $font-menu-main: 2.4rem/1 'SFUIDisplay', 'sans-serif';
 $font-invitation: 2rem/1.5 'SFUIText', 'sans-serif';
-$firstMediaBreak: 500px;
-$mobileScreen: 767px;
+$max_width: 120rem;
+$width-to-height-card-ratio: 1.454;
+$firstMediaBreak: 480px;
+$mobileScreen: 768px;
 $smallScreen: 960px;
 $mediumScreen: 1200px;
-$largeScreen: 1600px;
 $imgPath: '../../images';
 $cardsPath: '../../images/cards';
 $deepImgPath: '../../../../images';
@@ -56,8 +56,9 @@ $skirts: (
 }
 @mixin width-and-height ($width) {
   width: $width;
-  height: calc(#{$width} * 1.45);
+  height: calc(#{$width} * #{$width-to-height-card-ratio});
 }
+
 @mixin grid($col) {
   display: grid;
   grid-template-columns: repeat($col, 1fr);
@@ -66,14 +67,14 @@ $skirts: (
   justify-items:  center;
 }
 
-@mixin recordGrid($name: 30%) {
+@mixin recordGrid($name: 25%) {
   display: grid;
-  grid-template-columns: calc(#{$name} * .7) repeat(4, 1fr);
+  grid-template-columns: #{$name}  repeat(4, 1fr);
   grid-auto-rows: 1fr;
   align-content: center;
   justify-items:  center;
   @media (min-width: $firstMediaBreak) {
-    grid-template-columns: $name repeat(4, 1fr);
+    // grid-template-columns: $name repeat(4, 1fr);
   }
 }
 
@@ -93,7 +94,7 @@ $skirts: (
 
 %card {
   backface-visibility: hidden;
-  border-radius: 1.3rem;
+  border-radius: 10.8% / calc(10.8% / #{$width-to-height-card-ratio});
   width: 100%;
   height: 100%;
   position: absolute;
@@ -101,15 +102,14 @@ $skirts: (
   left: 0;
 }
 %card-container {
-  @include flex();
+  margin: 1rem auto;
   @include width-and-height(8rem);
   max-width: 20rem;
-  max-height: 30rem;
+  max-height: calc(20rem * #{$width-to-height-card-ratio});
   perspective: 100rem;
-  @media (min-width: 900px) {
-    @include width-and-height(10rem);
-  }
+  padding: 0;
   .card-flipper {
+   margin: auto;
     position: relative;
     width: 95%;
     height: 95%;
@@ -129,7 +129,7 @@ $skirts: (
     transform: rotateY(180deg);
     transition: transform 0.5s;
   }
-  &.out-desk {
+  &.hidden {
     opacity: 0;
     transition: opacity .6s;
   }

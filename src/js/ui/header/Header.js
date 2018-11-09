@@ -1,12 +1,12 @@
 /**
  * project match-match-r-r
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import GameMenu from '../gameMenu/GameMenu';
 import MainMenu from '../mainMenu/MainMenu';
-import BurgerMenuButton from './burgerMenuButton/BurgerMenuButton';
+import BurgerMenuButton from '../mainMenu/burgerMenuButton/BurgerMenuButton';
 import './header.scss';
 
 const Header = props => {

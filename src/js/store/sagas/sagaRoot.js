@@ -3,13 +3,18 @@
  */
 import { all } from 'redux-saga/effects';
 import watcherDeck from './watcherDeck';
-import watcherTimer from './watcherTimer';
 import watcherGame from './watcherGame';
+import watcherCards from './watcherCards';
+import watcherTimer from './watcherTimer';
+import watcherPlayer from './watcherPlayer';
+
 
 export default function* sagaRoot(store) {
     yield all([
+        watcherCards(store),
         watcherDeck(store),
-        watcherTimer(),
         watcherGame(store),
+        watcherTimer(),
+        watcherPlayer(store),
     ]);
 }

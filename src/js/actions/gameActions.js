@@ -15,15 +15,18 @@ export const setTimeout = bool => ({
     type: ActionTypes.SET_SKIRT,
     payload: bool,
 });
+export const setPanda = bool => ({
+    type: ActionTypes.SET_PANDA,
+    payload: bool,
+});
 export const newGameInit = () => ({
     type: ActionTypes.NEW_GAME_INIT,
 });
+export const endGame = () => ({
+    type: ActionTypes.END_GAME,
+});
 export const startGame = bool => ({
     type: ActionTypes.START_TIMER,
-    payload: bool,
-});
-export const drawingDeck = bool => ({
-    type: ActionTypes.DRAWING_DECK,
     payload: bool,
 });
 export const resetTime = () => ({

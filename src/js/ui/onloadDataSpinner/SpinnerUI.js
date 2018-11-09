@@ -1,5 +1,5 @@
 /**
- * project smartWizBattle
+ * project
  */
 import React from 'react';
 import './spinner.scss';

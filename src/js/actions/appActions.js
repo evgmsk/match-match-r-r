@@ -10,9 +10,7 @@ export const onLoadData = payload => {
     });
 };
 
-export const saveRecords = payload => {
-    return ({
-        type: ActionTypes.TOTAL_RECORDS_LOADED,
-        payload,
-    });
-};
+export const getRecords = payload => ({
+    type: ActionTypes.GET_RECORDS,
+    payload,
+});

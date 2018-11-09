@@ -6,6 +6,7 @@ import express from 'express';
 import webpack from 'webpack';
 import devMiddleware from 'webpack-dev-middleware';
 import hotMiddleware from 'webpack-hot-middleware';
+import path from 'path';
 import SC from '../configs/server-conf';
 import paths from '../configs/paths';
 import freePort from './free-port'; //helper function to find unused port
@@ -36,6 +37,7 @@ app.use(hotMiddleware(compiler, {
 }));
 
 app.get('*', (req, res) => {
+    console.log(req.url, paths.htmlDevPath);
     res.sendFile(paths.htmlDevPath);
 });
 

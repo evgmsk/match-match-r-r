@@ -25,12 +25,30 @@
     z-index: 10;
     animation: animateTop .4s;
   }
+  &.dropped {
+    @media (min-width: $firstMediaBreak) {
+      display: none;
+    }
+  }
   @media (min-width: $firstMediaBreak) {
     @include flex(space-around, center);
+    &.dropped {
+      position: relative;
+      width: 70%;
+      margin: 0 auto;
+      @include flex(space-around, center);
+      border: none;
+      border-radius: unset;
+      box-shadow: unset;
+      padding: unset;
+      top: unset;
+      right: unset;
+      height: unset;
+    }
   }
 }
 
 @keyframes animateTop {
-  from {top: -500px; opacity: 0}
+  from {top: 50px; opacity: 0}
   to {top: 75px; opacity: 1}
 }

@@ -4,30 +4,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import MainMenuButton from '../mainMenuButton/MainMenuButton';
 import { newGameInit } from '../../../actions/gameActions';
 import './newGameButton.scss';
 
 const NewGameButton = props => {
-    const className = 'game-menu-item game-menu-button';
-    const onClick = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        e.target.blur();
-        props.newGameInit();
+    const childProps = {
+        className: 'game-menu-item new-game',
+        name: 'New Game',
+        onClickHandler: props.newGameInit,
     };
-    const onKeyDown = e => {
-        e.stopPropagation();
-        if (e.key === 'Enter' || e.key === 'Space')
-            props.newGameInit();
-    };
+
     return (
-        <button
-            className={className}
-            onClick={onClick}
-            onKeyDown={onKeyDown}
-        >
-            New Game
-        </button>
+        <MainMenuButton {...childProps} />
     );
 };
 
@@ -37,5 +26,9 @@ NewGameButton.propTypes = {
 
 export default connect(
     null,
-    { newGameInit },
+    dispatch => ({
+        newGameInit(x) {
+            dispatch(newGameInit(x));
+        },
+    }),
 )(NewGameButton);

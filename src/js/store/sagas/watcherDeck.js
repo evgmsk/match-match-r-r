@@ -4,7 +4,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import ActionTypes from '../../actions/actionTypes';
-import Timeouts from '../../constants/timeouts';
+import { Timeouts } from '../../constants/constants';
 
 function* workerDeck({ payload }) {
     // The sagasMiddleware will start running timer generator.
@@ -15,6 +15,7 @@ function* workerDeck({ payload }) {
         yield put({ type: ActionTypes.DRAW_CARD, payload: payload[deckLength] });
     }
     yield put({ type: ActionTypes.START_TIMER, payload: true });
+    yield put({ type: ActionTypes.SET_TIMEOUT, payload: false });
 }
 
 export default function* watcherDeck() {

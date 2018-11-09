@@ -19,5 +19,8 @@
 }
 .records-wrapper {
   width: 98%;
-  @include recordGrid();
+  .records-table-body,
+  .records-table-head {
+    @include recordGrid();
+  }
 }
