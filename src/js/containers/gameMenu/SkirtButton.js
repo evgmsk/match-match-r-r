@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setSkirt } from '../../../actions/gameActions';
+import { setSkirt } from '../../actions/gameActions';
 
 const SkirtButton = props => {
     const className = `skirt-item ${props.skirtName} ${props.skirt === props.skirtName && 'active'}`;

@@ -33,9 +33,9 @@ class LogForm extends React.Component {
             if (logFail.name === this.name.current.value)
                 register(logFail);
             else
-                login({ name: this.name.current.value });
+                login({ name: this.name.current.value, records: {} });
         } else if (validateName(this.name.current.value)) {
-            login({ name: this.name.current.value });
+            login({ name: this.name.current.value, records: {} });
         }
         this.name.current.value = '';
     }

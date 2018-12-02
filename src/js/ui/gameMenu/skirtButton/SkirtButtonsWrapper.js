@@ -2,7 +2,7 @@
  * project match-match-r-r
  */
 import React from 'react';
-import SkirtButton from './SkirtButton';
+import SkirtButton from '../../../containers/gameMenu/SkirtButton';
 import { CardsSkirts } from '../../../constants/constants';
 import './skritButton.scss';
 

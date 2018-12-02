@@ -20,11 +20,6 @@ export const game = (state = {}, action) => {
                 ...state,
                 skirt: action.payload,
             };
-        case (ActionTypes.SHOWED_CARDS):
-            return {
-                ...state,
-                showedCard: action.payload,
-            };
         case (ActionTypes.SET_PANDA):
             return {
                 ...state,

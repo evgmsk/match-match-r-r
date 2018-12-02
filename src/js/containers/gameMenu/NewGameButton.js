@@ -4,9 +4,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import MainMenuButton from '../mainMenuButton/MainMenuButton';
-import { newGameInit } from '../../../actions/gameActions';
-import './newGameButton.scss';
+import MainMenuButton from '../../ui/gameMenu/mainMenuButton/MainMenuButton';
+import { newGameInit } from '../../actions/gameActions';
 
 const NewGameButton = props => {
     const childProps = {

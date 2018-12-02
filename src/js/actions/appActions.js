@@ -9,8 +9,3 @@ export const onLoadData = payload => {
         payload,
     });
 };
-
-export const getRecords = payload => ({
-    type: ActionTypes.GET_RECORDS,
-    payload,
-});

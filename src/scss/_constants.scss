@@ -108,6 +108,7 @@ $skirts: (
   max-height: calc(20rem * #{$width-to-height-card-ratio});
   perspective: 100rem;
   padding: 0;
+  align-self: center;
   .card-flipper {
    margin: auto;
     position: relative;

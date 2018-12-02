@@ -4,11 +4,16 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import ActionTypes from '../../actions/actionTypes';
 import { loginPlayer, newPlayer } from '../../helperFunction/loginPlayer';
-import { saveRec, fetchRecords } from '../../helperFunction/manageRecords';
+import { saveRec, fetchTotalRecords, fetchPlayerRecords } from '../../helperFunction/manageRecords';
 
 function* logPlayer(store, action) {
     const res = yield call(loginPlayer, action.payload);
     if (res === 'Player logged') {
+        const { player: { logFail } } = store.getState();
+        if (logFail)
+            yield put({ type: ActionTypes.REGISTRATION_OR_LOG_FAIL, payload: null });
+        yield put({ type: ActionTypes.DATA_LOADING, payload: true });
+        yield call(fetchPlayerRecords, action.payload);
         yield put({ type: ActionTypes.SET_PLAYER, payload: action.payload });
     } else
         yield put({ type: ActionTypes.REGISTRATION_OR_LOG_FAIL, payload: action.payload });
@@ -26,7 +31,9 @@ function* saveRecord(store, action) {
 }
 
 function* getRecords(action) {
-    yield call(fetchRecords, action.payload);
+    yield put({ type: ActionTypes.DATA_LOADING, payload: true });
+    yield call(fetchTotalRecords, action.payload);
+    yield put({ type: ActionTypes.DATA_LOADING, payload: false });
 }
 
 export default function* watcherPlayer(store) {

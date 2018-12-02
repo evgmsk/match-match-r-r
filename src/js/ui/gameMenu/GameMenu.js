@@ -4,7 +4,7 @@
 import React from 'react';
 import LevelButtonsWrapper from './levelButton/LevelButtonsWrapper';
 import SkirtButtonsWrapper from './skirtButton/SkirtButtonsWrapper';
-import NewGameButton from './gameMenuButton/NewGameButton';
+import NewGameButton from '../../containers/gameMenu/NewGameButton';
 import './gameMenu.scss';
 
 const GameMenu = () => {
@@ -18,7 +18,3 @@ const GameMenu = () => {
 };
 
 export default GameMenu;
-
-GameMenu.propTypes = {
-
-};

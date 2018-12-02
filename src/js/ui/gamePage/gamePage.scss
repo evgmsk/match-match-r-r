@@ -2,11 +2,10 @@
 
 .game-section {
   position: relative;
-  background: radial-gradient(ellipse farthest-side, #ffffff, $border-main);
+  background: radial-gradient(ellipse farthest-side, $text-color-main, $border-main);
   width: 98%;
   min-width: 40rem;
   margin: 0 auto;
-  //min-height: calc(100vh - 15rem);
   box-sizing: border-box;
   border-radius: 27px;
   padding: 2rem;

@@ -7,7 +7,7 @@ import './invitationContent.scss';
 
 const InvitationContent = props => {
     return (
-        <article className="invitation-body">
+        <section className="invitation-body">
             <h1>Welcome to the Match-match Game!</h1>
             <div className="game-description">
                 <p>
@@ -35,7 +35,7 @@ const InvitationContent = props => {
                 </p>
             </div>
             <button onClick={props.onClick} className="invitation-continue">Press to continue</button>
-        </article>
+        </section>
     );
 };
 

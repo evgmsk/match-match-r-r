@@ -9,7 +9,6 @@
   @extend %game-menu-shadow;
   border: solid 1px $game-menu-border;
   border-radius: 5rem;
-  //color: $ice;
   font: $font-main;
   outline: none;
   &:focus,
@@ -18,5 +17,13 @@
     color: $game-menu-border;
     background: transparent;
     cursor: pointer;
+  }
+  &.new-game {
+    margin: 0 9rem;
+    order: -1;
+    @media (min-width: $firstMediaBreak) {
+      order: 0;
+      margin: 0;
+    }
   }
 }

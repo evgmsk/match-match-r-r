@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MainRoutes from '../../constants/mainMenuRoutes';
-import MenuItem from './mainMenuItem/MenuItem';
+import MenuItem from '../../containers/mainMenu/MenuItemContainer';
 import './mainMenu.scss';
 
 const MainMenu = React.forwardRef((props, ref) => {

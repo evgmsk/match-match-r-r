@@ -6,10 +6,14 @@ import _ from 'lodash';
 import ActionTypes from '../../actions/actionTypes';
 import { CardsFaces, LevelToNumber } from '../../constants/constants';
 
+function* setDifficulty() {
+    yield put({ type: ActionTypes.NEW_GAME_INIT });
+}
+
 function* endGame(store) {
     const { game: { difficulty }, time, player: { records } } = store.getState();
     yield put({ type: ActionTypes.START_TIMER, payload: false });
-    if (!records.difficulty || records.difficulty > time) {
+    if (!records[difficulty] || records[difficulty] > time) {
         yield put({
             type: ActionTypes.SAVE_RECORD,
             payload: { time, difficulty },
@@ -46,4 +50,5 @@ function* initGame(store) {
 export default function* watcherGame(store) {
     yield takeLatest(ActionTypes.NEW_GAME_INIT, initGame, store);
     yield takeLatest(ActionTypes.END_GAME, endGame, store);
+    yield takeLatest(ActionTypes.SET_DIFFICULTY, setDifficulty);
 }

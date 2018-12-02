@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import GameMenu from '../gameMenu/GameMenu';
 import MainMenu from '../mainMenu/MainMenu';
-import BurgerMenuButton from '../mainMenu/burgerMenuButton/BurgerMenuButton';
+import BurgerMenuButton from '../../containers/mainMenu/BurgerMenuButton';
 import './header.scss';
 
 const Header = props => {

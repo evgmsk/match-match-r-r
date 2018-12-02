@@ -12,10 +12,19 @@ export const saveRec = (name, record) => {
     Storage.setItem('Players', JSON.stringify(Players));
 };
 
-export const fetchRecords = (players) => {
+export const fetchTotalRecords = (players) => {
     const Players = Storage.Players ? JSON.parse(Storage.Players) : [];
     Players.forEach((player, i) => {
         players[i] = player;
+    });
+};
+
+export const fetchPlayerRecords = (payload) => {
+    const Players = Storage.Players ? JSON.parse(Storage.Players) : [];
+    const Records = Players.filter(player => player.name === payload.name)[0].records;
+    //console.log(Players, payload.name);
+    Object.keys(Records).forEach(rec => {
+       payload.records[rec] = Records[rec];
     });
 };
 

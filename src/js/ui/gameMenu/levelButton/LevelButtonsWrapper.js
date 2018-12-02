@@ -2,7 +2,7 @@
  * project match-match-r-r
  */
 import React from 'react';
-import LevelButton from './LevelButton';
+import LevelButton from '../../../containers/gameMenu/LevelButton';
 import { Levels } from '../../../constants/constants';
 import './levelButton.scss';
 

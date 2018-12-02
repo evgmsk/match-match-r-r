@@ -28,3 +28,8 @@ export const saveRecord = payload => ({
     type: ActionTypes.SAVE_RECORD,
     payload,
 });
+
+export const getRecords = payload => ({
+    type: ActionTypes.GET_RECORDS,
+    payload,
+});

@@ -19,6 +19,7 @@ const player = (state = {}, action) => {
             return {
                 ...state,
                 name: action.payload.name,
+                records: action.payload.records || {},
             };
         case (ActionTypes.REGISTRATION_OR_LOG_FAIL):
             return {
