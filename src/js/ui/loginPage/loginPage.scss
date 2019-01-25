@@ -36,3 +36,24 @@
     }
   }
 }
+.rr {
+  width: 100vh;
+  &-enter {
+    opacity: 0.01;
+    transform: translateX(-100%);
+  }
+  &-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 300ms ease-in;
+  }
+  &-exit {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  &-exit-active {
+    opacity: 0.01;
+    transform: translateX(100%);
+    transition: all 300ms ease-out;
+  }
+}

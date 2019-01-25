@@ -4,6 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 import { onLoadData } from '../../actions/appActions';
 import InvitationContent from './invitation/InvitationContent';
 import './invitationPage.scss';
@@ -22,6 +23,7 @@ class Invitation extends React.Component {
         this.props.history.push('/login');
     }
     render() {
+        console.log(this.props.location, this.props)
         return (
             <section className="invitation">
                 <InvitationContent onClick={this.onClick} />

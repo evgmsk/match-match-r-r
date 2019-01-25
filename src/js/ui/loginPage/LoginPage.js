@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import LogForm from './logForm/LogForm';
 import { onLoadData } from '../../actions/appActions';
 import { loginPlayer, regPlayer } from '../../actions/playerActions';
+
 import './loginPage.scss';
 
 class LogPage extends React.Component {
