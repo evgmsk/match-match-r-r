@@ -1,8 +1,7 @@
 /**
  * project match-match-r-r
  */
-import { put, takeLatest } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
+import { put, takeLatest, delay } from 'redux-saga/effects';
 import ActionTypes from '../../actions/actionTypes';
 import { Timeouts, MaxTime } from '../../constants/constants';
 
