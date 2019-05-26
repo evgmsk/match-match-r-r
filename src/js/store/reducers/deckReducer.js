@@ -1,7 +1,7 @@
 /**
  * project match-match-r-r
  */
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../actions/actionTypes';
 
 const card = (state = {}, action) => {
     switch (action.type) {

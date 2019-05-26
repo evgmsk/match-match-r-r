@@ -2,7 +2,7 @@
  * project match-match-r-r
  */
 import { put, takeLatest, delay } from 'redux-saga/effects';
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../actions/actionTypes';
 import { Timeouts, MaxTime } from '../../constants/constants';
 
 function* workerTimer(action) {

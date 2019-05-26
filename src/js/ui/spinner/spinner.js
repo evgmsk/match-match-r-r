@@ -1,6 +1,3 @@
-/**
- * project
- */
 import React from 'react';
 import './spinner.scss';
 /**
@@ -9,9 +6,9 @@ import './spinner.scss';
  * Spinner's animation implemented with css.
  */
 
-const Spinner = () => {
+const Spinner = props => {
     return (
-        <div className="spinner">
+        <div className={props.className ? props.className : "spinner whole-page"}>
             <div className="spinner-circle">
                 <div className="spinner-circle-center" />
             </div>

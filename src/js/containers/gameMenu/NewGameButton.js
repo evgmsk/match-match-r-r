@@ -5,14 +5,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MainMenuButton from '../../ui/gameMenu/mainMenuButton/MainMenuButton';
-import { newGameInit } from '../../actions/gameActions';
+import { newGameInit } from '../../store/actions/gameActions';
 
 const NewGameButton = props => {
-    const childProps = {
-        className: 'game-menu-item new-game',
-        name: 'New Game',
-        onClickHandler: props.newGameInit,
-    };
+    const {
+        className = 'game-menu-item new-game',
+        name = 'New Game',
+        newGameInit,
+    } = props || {};
+
+    const childProps = {className, name, onClickHandler: newGameInit};
 
     return (
         <MainMenuButton {...childProps} />
@@ -23,11 +25,5 @@ NewGameButton.propTypes = {
     newGameInit: PropTypes.func.isRequired,
 };
 
-export default connect(
-    null,
-    dispatch => ({
-        newGameInit(x) {
-            dispatch(newGameInit(x));
-        },
-    }),
-)(NewGameButton);
+export default connect(null, {newGameInit})(NewGameButton);
+

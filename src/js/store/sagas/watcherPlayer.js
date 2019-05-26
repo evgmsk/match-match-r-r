@@ -2,7 +2,7 @@
  * project match-match-r-r
  */
 import { call, put, takeLatest } from 'redux-saga/effects';
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../actions/actionTypes';
 import { loginPlayer, newPlayer } from '../../helperFunction/loginPlayer';
 import { saveRec, fetchTotalRecords, fetchPlayerRecords } from '../../helperFunction/manageRecords';
 

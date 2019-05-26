@@ -3,7 +3,7 @@
  */
 import { put, takeLatest } from 'redux-saga/effects';
 import _ from 'lodash';
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../actions/actionTypes';
 import { CardsFaces, LevelToNumber } from '../../constants/constants';
 
 function* setDifficulty() {

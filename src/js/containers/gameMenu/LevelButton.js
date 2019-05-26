@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setDifficulty } from '../../actions/gameActions';
+import { setDifficulty } from '../../store/actions/gameActions';
 
 const LevelButton = props => {
     const className = `level-item ${props.difficulty === props.value && 'active'}`;
@@ -34,9 +34,4 @@ LevelButton.propTypes = {
     setDifficulty: PropTypes.func.isRequired,
 };
 
-export default connect(
-    state => ({
-        difficulty: state.game.difficulty,
-    }),
-    { setDifficulty },
-)(LevelButton);
+export default connect(state => ({difficulty: state.game.difficulty}), { setDifficulty })(LevelButton);

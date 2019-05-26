@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('mini-css-extract-plugin');
 
 const env = process.env.NODE_ENV === 'prod';
+console.log(env);
 
 const mode = env ? 'production' : 'development';
 /*if (env) { // prod config

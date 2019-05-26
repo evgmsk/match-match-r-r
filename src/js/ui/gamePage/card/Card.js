@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './card.scss';
 
 class Card extends React.Component {

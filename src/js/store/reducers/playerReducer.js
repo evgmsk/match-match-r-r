@@ -1,7 +1,7 @@
 /**
  * project match-match-r-r
  */
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../actions/actionTypes';
 
 const records = (state = {}, payload) => {
     const { difficulty, time } = payload;

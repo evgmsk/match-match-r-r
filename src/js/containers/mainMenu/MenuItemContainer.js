@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import MenuItemUI from '../../ui/mainMenu/mainMenuItem/MenuItem';
-import { onLoadData } from '../../actions/appActions';
-import { getRecords } from '../../actions/playerActions';
+import { onLoadData } from '../../store/actions/appActions';
+import { getRecords } from '../../store/actions/playerActions';
 
 const MenuItem = (props) => {
     const condition = !props.playerName && props.href === '/game';
@@ -26,7 +26,7 @@ const MenuItem = (props) => {
         <MenuItemUI
             to={href}
             activeClassName={activeClass}
-            className="main-menu-item"
+            className={props.className || "main-menu-item"}
             exact
             title={props.title}
             onClick={onClick}

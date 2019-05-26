@@ -160,3 +160,57 @@ $skirts: (
     height: 100%;
   }
 }
+
+@mixin spinner($circle-size: 50px, $circle-width: 12px, $gradient-colors: #eaeff5 #90b0cc, $background: '') {
+  .spinner-circle {
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spinner 3s linear infinite;
+    width: $circle-size;
+    height: $circle-size;
+    z-index: 1000;
+    &:before {
+      content: '';
+      width: $circle-size * .5;
+      height: $circle-size;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @if ($background != '') {
+        background: $background;
+      }
+      @else {
+        background: linear-gradient(nth($gradient-colors, 2), nth($gradient-colors, 1));
+      }
+      border-top-left-radius: $circle-size * .5;
+      border-bottom-left-radius: $circle-size * .5;
+    }
+    &:after {
+      content: '';
+      width: $circle-size * .5;
+      height: $circle-size;
+      position: absolute;
+      top: 0;
+      right: 0;
+      @if ($background != '') {
+        background: $background;
+      }
+      @else {
+        background: linear-gradient(nth($gradient-colors, 1), nth($gradient-colors, 2));
+      }
+      border-top-right-radius: $circle-size * .5;
+      border-bottom-right-radius: $circle-size * .5;
+    }
+  }
+  .spinner-circle-center {
+    display: block;
+    height: $circle-size - $circle-width;
+    width: $circle-size - $circle-width;
+    border-radius: 50%;
+    background: green;
+    z-index: 1001;
+  }
+}

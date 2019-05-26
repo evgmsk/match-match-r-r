@@ -1,17 +1,23 @@
 /**
  * project match-match-r-r
  */
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { HashRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import AppRoute from './appRoute';
 import Header from './ui/header/Header';
 import Footer from './ui/footer/Footer';
-import Spinner from './ui/onloadDataSpinner/SpinnerUI';
+import Spinner from './ui/spinner/spinner';
+import {onLoadData} from './store/actions/appActions';
+
 import './app.scss';
 
 const App = props => {
+    useEffect(() => {
+        props.onLoadData(false);
+    },[]);
     return (
         <Fragment>
             {props.dataLoading && <Spinner />}
@@ -26,11 +32,7 @@ const App = props => {
     );
 };
 
-export default connect(
-    state => ({
-        dataLoading: state.app.dataLoading,
-    }),
-)(App);
+export default connect(state => ({dataLoading: state.app.dataLoading}), {onLoadData})(App);
 
 App.propTypes = {
     dataLoading: PropTypes.bool.isRequired,

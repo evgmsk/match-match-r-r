@@ -3,7 +3,7 @@
  */
 import { put, takeLatest, delay } from 'redux-saga/effects';
 // import { delay } from 'redux-saga';
-import ActionTypes from '../../actions/actionTypes';
+import ActionTypes from '../actions/actionTypes';
 import { Timeouts } from '../../constants/constants';
 
 function* workerCards(store, action) {

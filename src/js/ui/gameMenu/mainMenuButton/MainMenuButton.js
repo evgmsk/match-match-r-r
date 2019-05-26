@@ -3,10 +3,10 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './mainManuButton.scss';
 
-
-const MainGameButton = props => {
+const Button = props => {
     return (
         <button
             className={props.className}
@@ -17,10 +17,10 @@ const MainGameButton = props => {
     );
 };
 
-MainGameButton.propTypes = {
+Button.propTypes = {
     onClickHandler: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string.isRequired,
 };
 
-export default MainGameButton;
+export default Button;

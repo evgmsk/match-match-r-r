@@ -5,8 +5,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { onLoadData } from '../../actions/appActions';
-import { chooseCard } from '../../actions/deckActions';
+import { onLoadData } from '../../store/actions/appActions';
+import { chooseCard } from '../../store/actions/deckActions';
 import { GameClasses } from '../../constants/constants';
 import GamePage from '../../ui/gamePage/GamePage';
 

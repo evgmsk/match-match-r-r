@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RecordsTableHead from './records/RecordsTableHead';
 import RecordsTableRow from './records/RecordsTableRow';
-import { onLoadData } from '../../actions/appActions';
+import { onLoadData } from '../../store/actions/appActions';
 import { Levels, MaxTime } from '../../constants/constants';
 import { compareRecords } from '../../helperFunction/manageRecords';
 import './recordsPage.scss';

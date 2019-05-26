@@ -11,7 +11,7 @@ import './index.scss';
 window.React = React;
 const store = storeFactory();
 const target = document.getElementById('root');
-// console.log(store.getState());
+
 ReactDOM.render(<Provider store={store}>
                     <App />
                 </Provider>, target);
