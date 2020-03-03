@@ -34,18 +34,8 @@ if (env) { // prod config
             filename: 'css/[name].css',
         }),
     );
-    plugins.push(new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': JSON.stringify("production"),
-        },
-    }));
 } else { // dev-config
     plugins.push(new webpack.HotModuleReplacementPlugin());
-    plugins.push(new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': JSON.stringify("development"),
-        },
-    }));
 }
 
 const lint = process.env.NODE_ENV !== 'lint' ? {} : {
@@ -71,15 +61,7 @@ const postcssRules = {
         ident: 'postcss',
         plugins: () => [
             require('postcss-flexbugs-fixes'),
-            autoprefixer({
-                browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie < 9',
-                ],
-                flexbox: 'no-2009',
-            }),
+            autoprefixer({flexbox: 'no-2009'}),
         ],
     },
 };
